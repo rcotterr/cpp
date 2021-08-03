@@ -24,6 +24,7 @@ int main() {
 
     std::cout << "\nTests for DiamondTrap" << std::endl;
     DiamondTrap diamond_trap1 = DiamondTrap("diamond_trap1");
+    DiamondTrap diamond_trap2(diamond_trap1);
 
     diamond_trap1.highFivesGuys();
     diamond_trap1.guardGate();
