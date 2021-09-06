@@ -3,7 +3,7 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(int hp, std::string const & type) {
-    std::cout << "Enemy constructor call for " << hp << std::endl;
+    std::cout << "Enemy constructor call for " << type << std::endl;
     this->_type = type;
     this->_hp = hp;
     return;

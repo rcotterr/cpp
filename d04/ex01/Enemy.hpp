@@ -3,7 +3,7 @@
 
 class Enemy
 {
-    private:
+    protected:
         int _hp;
         std::string _type;
     public:
