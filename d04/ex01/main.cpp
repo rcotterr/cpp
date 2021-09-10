@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include "PowerFist.hpp"
-#include "RadScorpion.hpp"
+#include "Character.hpp"
 
 
 int main() {
@@ -36,6 +35,37 @@ int main() {
     std::cout << "hp of red_scorpion is : " << red_scorpion.getHP() << std::endl;
     red_scorpion.takeDamage(9);
     std::cout << "after takeDamage(9) hp of red_scorpion is : " << red_scorpion.getHP() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "   ***check Character***" << std::endl;
+    Character character = Character("character1");
+    Character character_new = Character(character);
+    std::cout << "name of character is : " << character.getName() << std::endl;
+    character.recoverAP();
+    character.equip(&power_fist);
+    character.attack(&red_scorpion);
+    std::cout << character << std::endl;
+    std::cout << std::endl;
+
+
+    std::cout << "   ***check SubjectMain***" << std::endl;
+    Character* me = new Character("me");
+    std::cout << *me;
+    Enemy* b = new RadScorpion();
+    AWeapon* pr = new PlasmaRifle();
+    AWeapon* pf = new PowerFist();
+    me->equip(pr);
+    std::cout << *me;
+    me->equip(pf);
+    me->attack(b);
+    std::cout << *me;
+    me->equip(pr);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+
     std::cout << std::endl;
 
     return 0;

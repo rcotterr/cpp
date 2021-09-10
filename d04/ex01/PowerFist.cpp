@@ -2,7 +2,7 @@
 #include <string>
 #include "PowerFist.hpp"
 
-PowerFist::PowerFist() :  AWeapon("Power Fist", 50, 8) {
+PowerFist::PowerFist() :  AWeapon("Power Fist", 8, 50) {
     std::cout << "PowerFist constructor call" << std::endl;
     return;
 }
