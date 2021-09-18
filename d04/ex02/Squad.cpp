@@ -4,7 +4,7 @@
 
 
 Squad::Squad() {
-    this->_container = std::vector<ISpaceMarine>;
+//    this->_container = std::vector<ISpaceMarine>;
     return;
 }
 
@@ -14,7 +14,7 @@ Squad::~Squad() {
     {
         delete (this->_container)[i];
     }
-    delete this->_container;
+//    delete this->_container;
     return;
 }
 
@@ -43,7 +43,7 @@ int Squad::getCount() const {
 }
 
 ISpaceMarine* Squad::getUnit(int i) const {
-    if (i < (this->_container).size()) {
+    if (i < int((this->_container).size())) {
         return (this->_container)[i];
     }
     return NULL;
@@ -51,7 +51,7 @@ ISpaceMarine* Squad::getUnit(int i) const {
 
 int Squad::push(ISpaceMarine* space_marine) {
 // TODO (Adding a null unit, or an unit already in the squad, make no sense at all, of course...
-    (this->_container).push_back();
+    (this->_container).push_back(space_marine);
     return (this->_container).size();
 }
 

@@ -18,24 +18,25 @@ TacticalMarine::TacticalMarine(TacticalMarine const &src) {
 }
 
 TacticalMarine & TacticalMarine::operator=(TacticalMarine const &src) {
+    src.battleCry(); //TODO operator=
     return *this;
 }
 
-TacticalMarine & TacticalMarine::clone() {
+ISpaceMarine * TacticalMarine::clone() const {
     //TODO make copy of object
     TacticalMarine * copy = new TacticalMarine();
     return copy;
 }
 
-void TacticalMarine::battleCry() {
+void TacticalMarine::battleCry() const {
     std::cout << "For the holy PLOT!" << std::endl;
     return;
 }
 
-void TacticalMarine::rangedAttack() {
+void TacticalMarine::rangedAttack() const {
     std::cout << "* attacks with a bolter *" << std::endl;
 }
 
-void TacticalMarine::meleeAttack() {
+void TacticalMarine::meleeAttack() const {
     std::cout << "* attacks with a chainsword *" << std::endl;
 }

@@ -2,16 +2,16 @@
 #include <vector>
 #include "ISquad.hpp"
 
-class Squad : ISquad
+class Squad : public ISquad
 {
     private:
-        std::vector _container;
+        std::vector<ISpaceMarine *> _container;
 
     public:
         Squad();
         Squad(Squad const &src);
         Squad & operator=(Squad const &src);
-        virtual ~ISquad();
+        virtual ~Squad();
         virtual int getCount() const;
         virtual ISpaceMarine* getUnit(int i) const;
         virtual int push(ISpaceMarine* space_marine);

@@ -1,4 +1,4 @@
-#include "ISpaceMarine.hpp"
+#include "AssaultTerminator.hpp"
 
 class ISquad
 {
