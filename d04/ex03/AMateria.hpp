@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
+#include "ICharacter.hpp"
 
 class AMateria
 {
     protected:
-        std::string const & _type;
+        std::string const _type;
         unsigned int _xp;
+
     public:
         AMateria(std::string const & type);
         virtual ~AMateria();

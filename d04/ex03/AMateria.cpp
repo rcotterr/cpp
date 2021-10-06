@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "AMateria.hpp"
-#include "Character.hpp"
 
 
 AMateria::AMateria(std::string const & type) {
@@ -26,6 +25,7 @@ AMateria & AMateria::operator=(AMateria const &src) {
 }
 
 std::string const & AMateria::getType() const {
+    std::string const & type = this->typ
     return this->_type;
 }
 

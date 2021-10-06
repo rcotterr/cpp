@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
 
-Ice::Ice() {
+Ice::Ice() : AMateria("ice"){
     return;
 }
 
@@ -25,6 +25,6 @@ Ice & Ice::operator=(Ice const &src) {
 
 void Ice::use(ICharacter& target) {
     this->_xp += 10; //TODO delete here (the same in AMateria class)
-    "* shoots an ice bolt at NAME *"
+    "* shoots an ice bolt at NAME *";
     return;
 }

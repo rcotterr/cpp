@@ -5,7 +5,8 @@
 class Ice : public AMateria
 {
     public:
-        Ice() : AMateria("ice");
+        Ice();
+//        Ice() : AMateria("ice");
         virtual ~Ice();
         Ice(Ice const &src);
         Ice & operator=(Ice const &src);
