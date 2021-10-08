@@ -1,8 +1,15 @@
-#include "Character.hpp"
+#include <iostream>
+#include <string>
+#include "Ice.hpp"
+
 
 int main() {
 
-    
+    std::cout << "   ***check Ice***" << std::endl;
+    AMateria *ice = new Ice();
+    std::cout << ice->getType() << std::endl;
+
+    delete ice;
 
 
 //    std::cout << "   ***check SubjectMain***" << std::endl;
