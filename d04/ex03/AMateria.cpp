@@ -20,7 +20,6 @@ AMateria::~AMateria() {
 
 AMateria & AMateria::operator=(AMateria const &src) {
     this->_xp = src.getXP();
-    this->_type = src.getType();
     return *this;
 }
 

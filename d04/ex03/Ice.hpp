@@ -6,12 +6,9 @@ class Ice : public AMateria
 {
     public:
         Ice();
-//        Ice() : AMateria("ice");
         virtual ~Ice();
         Ice(Ice const &src);
-        Ice & operator=(Ice const &src);
-//        std::string const & getType() const; //Returns the materia type
-//        unsigned int getXP() const; //Returns the Materia's XP
+//        Ice & operator=(Ice const &src);
         virtual Ice* clone() const;
         virtual void use(ICharacter& target);
 };

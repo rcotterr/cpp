@@ -18,11 +18,9 @@ Ice::Ice(Ice const &src) : AMateria(src) {
     return;
 }
 
-Ice & Ice::operator=(Ice const &src) {
-    this->_xp = src.getXP(); //TODO delete here (the same in AMateria class)
-    this->_type = src.getType(); //TODO While assigning a Materia to another, copying the type doesn’t make sense...
-    return *this;
-}
+//Ice & Ice::operator=(Ice const &src) {
+//    return *this;
+//}
 
 
 void Ice::use(ICharacter& target) {

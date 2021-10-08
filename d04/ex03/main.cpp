@@ -7,9 +7,16 @@ int main() {
 
     std::cout << "   ***check Ice***" << std::endl;
     AMateria *ice = new Ice();
-    std::cout << ice->getType() << std::endl;
+    std::cout << "Type of AMateria is: " << ice->getType() << std::endl;
+    std::cout << "XP of AMateria is: " << ice->getXP() << std::endl;
+
+    //use
+    //clone
+    Ice ice_to_copy = Ice();
+    Ice ice_new_overload = Ice(ice_to_copy);
 
     delete ice;
+
 
 
 //    std::cout << "   ***check SubjectMain***" << std::endl;
