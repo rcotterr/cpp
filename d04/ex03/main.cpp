@@ -18,10 +18,14 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "   ***check Character***" << std::endl;
-    ICharacter *character = new Character("character");
-    std::cout << "New character has been created with name: " << character->getName() << std::endl;
-    character->equip(ice);
-    character->unequip(0);
+    ICharacter *character1 = new Character("character1");
+    std::cout << "New character has been created with name: " << character1->getName() << std::endl;
+
+    std::cout << "Call character methods: equip, use, unequip" << std::endl;
+    Character character2 = Character("character2");
+    character1->equip(ice);
+    character1->use(0, character2);
+    character1->unequip(0);
 
 
 
@@ -35,7 +39,7 @@ int main() {
 
     delete ice;
     delete ice_clone;
-    delete character;
+    delete character1;
 
 
 
