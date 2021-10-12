@@ -7,6 +7,9 @@
 Character::Character(std::string const & name) {
     this->_name = name;
     this->_materia_num = 0;
+    for(int i=0; i < SIZE; i++) {
+        (this->_container)[i] = NULL;
+    }
     return;
 }
 
@@ -35,23 +38,28 @@ std::string const & Character::getName() const {
     return this->_name;
 }
 
-
 void Character::equip(AMateria* m) {
-//TODO In case we try to equip a Materia in a full inventory, or use/uneqip a nonexistent Materia, don’t do a thing.
-    //TODO check if some slot is NULL
-    (this->_container)[this->_materia_num] = m;
-    this->_materia_num++;
+    for(int i=0; i < SIZE; i++) {
+        if ((this->_container)[i] == NULL) {
+            (this->_container)[i] = m;
+        }
+    }
 }
 
 void Character::unequip(int idx) {
-//TODO
-    (this->_container)[idx] = NULL;
-    //    this->_materia_num++;
-
+    if (idx < SIZE && idx >= 0) {
+        AMateria * materia = (this->_container)[idx];
+        if (materia != NULL) {
+            (this->_container)[idx] = NULL;
+        }
+    }
 }
 
 void Character::use(int idx, ICharacter& target) {
-//TODO check
-    AMateria *materia = (this->_container)[idx];
-    materia->use(target);
+    if (idx < SIZE && idx >= 0) {
+        AMateria *materia = (this->_container)[idx];
+        if (materia != NULL) {
+            materia->use(target);
+        }
+    }
 }

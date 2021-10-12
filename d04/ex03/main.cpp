@@ -20,10 +20,18 @@ int main() {
     std::cout << "   ***check Character***" << std::endl;
     ICharacter *character = new Character("character");
     std::cout << "New character has been created with name: " << character->getName() << std::endl;
+    character->equip(ice);
+    character->unequip(0);
 
 
 
     //    ice->use();
+    // connections (a lot of materia, no materia at all and so on)
+
+//    make the same for Character
+//    Ice ice_to_copy = Ice();
+//    Ice ice_new_overload = Ice(ice_to_copy);
+//    std::cout << std::endl;
 
     delete ice;
     delete ice_clone;
