@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
-#include "ICharacter.hpp"
+
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
+
+class ICharacter;
 
 class AMateria
 {
@@ -18,3 +22,5 @@ class AMateria
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target); //TODO xp++ here but print in inherited classes
 };
+
+#endif

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 
 std::string const & type = "ice";
