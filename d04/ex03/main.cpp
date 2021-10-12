@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Ice.hpp"
+#include "Character.hpp"
 
 
 int main() {
@@ -9,13 +10,24 @@ int main() {
     AMateria *ice = new Ice();
     std::cout << "Type of AMateria is: " << ice->getType() << std::endl;
     std::cout << "XP of AMateria is: " << ice->getXP() << std::endl;
+    AMateria *ice_clone = ice->clone();
+    std::cout << "Clone of ice has been made; type of clone is: " << ice_clone->getType() << std::endl;
 
-    //use
-    //clone
     Ice ice_to_copy = Ice();
     Ice ice_new_overload = Ice(ice_to_copy);
+    std::cout << std::endl;
+
+    std::cout << "   ***check Character***" << std::endl;
+    ICharacter *character = new Character("character");
+    std::cout << "New character has been created with name: " << character->getName() << std::endl;
+
+
+
+    //    ice->use();
 
     delete ice;
+    delete ice_clone;
+    delete character;
 
 
 

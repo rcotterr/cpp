@@ -33,7 +33,6 @@ void Ice::use(ICharacter& target) {
 
 
 Ice* Ice::clone() const {
-    std::cout << "call clone" << std::endl;
     Ice *ice_new = new Ice();
     return ice_new;
 }
