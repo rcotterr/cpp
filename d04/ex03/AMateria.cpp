@@ -36,6 +36,6 @@ unsigned int AMateria::getXP() const {
 
 void AMateria::use(ICharacter& target) {
     this->_xp += 10;
-    std::cout << target.getName(); //TODO delete
+    target.getName(); //TODO delete
 
 }

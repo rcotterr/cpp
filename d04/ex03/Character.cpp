@@ -6,9 +6,9 @@
 
 Character::Character(std::string const & name) {
     this->_name = name;
-    this->_materia_num = 0;
     for(int i=0; i < SIZE; i++) {
         (this->_container)[i] = NULL;
+        std::cout <<this->_name << (this->_container)[i]<< std::endl;
     }
     return;
 }
@@ -19,18 +19,32 @@ Character::Character(Character const &src) {
 }
 
 Character::~Character() {
-//TODO The old Materia of a Character must be deleted.
+std::cout <<"lala"<< std::endl;
+    for(int i=0; i < SIZE; i++) {
+    std::cout <<"lala"<< std::endl;
+    std::cout <<i<< std::endl;
+        if ((this->_container)[i] != NULL) {
+            std::cout <<((this->_container)[i])->getType()<< std::endl;
+            delete (this->_container)[i];
+        }
+    }
+    std::cout <<"lala_"<< std::endl;
     return;
 }
 
 Character & Character::operator=(Character const &src) {
-//TODO operator=
-//    AMateria* _container[SIZE] = src.
-//    for(i=0; i < SIZE; i++) {
-//        (this->_container)[i] = sr;
-//    }
-//TODO The old Materia of a Character must be deleted.
-    std::cout << src.getName() << std::endl;
+    this->_name = src.getName();
+    for(int i=0; i < SIZE; i++) {
+        AMateria * materia = (this->_container)[i];
+        std::cout <<materia<< std::endl;
+        if (materia != NULL) {
+            std::cout <<"before"<< std::endl;
+            delete (this->_container)[i];
+//            delete materia;
+        }
+        std::cout <<"lala_"<< std::endl;
+        (this->_container)[i] = src.getMateria(i);
+    }
     return *this;
 }
 
@@ -38,10 +52,16 @@ std::string const & Character::getName() const {
     return this->_name;
 }
 
+AMateria * Character::getMateria(int idx) const {
+    return (this->_container)[idx];
+}
+
 void Character::equip(AMateria* m) {
     for(int i=0; i < SIZE; i++) {
         if ((this->_container)[i] == NULL) {
             (this->_container)[i] = m;
+            std::cout <<this->_name << i << std::endl;
+            return;
         }
     }
 }

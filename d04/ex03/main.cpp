@@ -27,7 +27,9 @@ int main() {
     character1->use(0, character2);
     character1->unequip(0);
 
-
+    character2.equip(ice);
+    Character character3 = Character(character2);
+    std::cout << "Created character3 with copy constructor: " << character3.getName() << std::endl;
 
     //    ice->use();
     // connections (a lot of materia, no materia at all and so on)
@@ -35,12 +37,15 @@ int main() {
 //    make the same for Character
 //    Ice ice_to_copy = Ice();
 //    Ice ice_new_overload = Ice(ice_to_copy);
-//    std::cout << std::endl;
+    std::cout << std::endl;
 
-    delete ice;
-    delete ice_clone;
-    delete character1;
+//    delete ice;
+//    delete ice_clone;
+    std::cout << std::endl;
+    character1->equip(ice_clone);
+    delete character1; //delete ice_clone here
 
+    std::cout << std::endl;
 
 
 //    std::cout << "   ***check SubjectMain***" << std::endl;
