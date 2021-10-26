@@ -23,29 +23,32 @@ int main() {
 
     std::cout << "Call character methods: equip, use, unequip" << std::endl;
     Character character2 = Character("character2");
+    std::cout << "before equipped" << std::endl;
     character1->equip(ice);
+     std::cout << "equipped" << std::endl;
     character1->use(0, character2);
+    std::cout << "before unequip" << std::endl;
     character1->unequip(0);
 
     character2.equip(ice);
-    Character character3 = Character(character2);
+    Character character3 = Character(character2); //TODO check with existing (memory leaks)
     std::cout << "Created character3 with copy constructor: " << character3.getName() << std::endl;
 
-    //    ice->use();
+//        ice->use();
     // connections (a lot of materia, no materia at all and so on)
 
-//    make the same for Character
-//    Ice ice_to_copy = Ice();
-//    Ice ice_new_overload = Ice(ice_to_copy);
+
     std::cout << std::endl;
 
 //    delete ice;
 //    delete ice_clone;
     std::cout << std::endl;
+    std::cout << "almost end" << std::endl;
     character1->equip(ice_clone);
+    std::cout << "almost end before delete" << std::endl;
     delete character1; //delete ice_clone here
-
-    std::cout << std::endl;
+    //error in destructor
+    std::cout << "end" << std::endl;
 
 
 //    std::cout << "   ***check SubjectMain***" << std::endl;

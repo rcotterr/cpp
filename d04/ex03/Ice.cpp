@@ -26,8 +26,7 @@ Ice::Ice(Ice const &src) : AMateria(src) {
 
 void Ice::use(ICharacter& target) {
     this->_xp += 10; //TODO delete here (the same in AMateria class)
-    std::cout << "* shoots an ice bolt at NAME *" << std::endl;
-    target.getName(); //TODO delete
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
     return;
 }
 
