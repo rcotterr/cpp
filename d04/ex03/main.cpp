@@ -23,11 +23,11 @@ int main() {
 
     std::cout << "Call character methods: equip, use, unequip" << std::endl;
     Character character2 = Character("character2");
-    std::cout << "before equipped" << std::endl;
+//    std::cout << "before equipped" << std::endl;
     character1->equip(ice);
-     std::cout << "equipped" << std::endl;
+//     std::cout << "equipped" << std::endl;
     character1->use(0, character2);
-    std::cout << "before unequip" << std::endl;
+//    std::cout << "before unequip" << std::endl;
     character1->unequip(0);
 
     character2.equip(ice);
@@ -42,13 +42,13 @@ int main() {
 
 //    delete ice;
 //    delete ice_clone;
-    std::cout << std::endl;
-    std::cout << "almost end" << std::endl;
+//    std::cout << std::endl;
+//    std::cout << "almost end" << std::endl;
     character1->equip(ice_clone);
-    std::cout << "almost end before delete" << std::endl;
+//    std::cout << "almost end before delete" << std::endl;
     delete character1; //delete ice_clone here
     //error in destructor
-    std::cout << "end" << std::endl;
+//    std::cout << "\nend" << std::endl;
 
 
 //    std::cout << "   ***check SubjectMain***" << std::endl;
