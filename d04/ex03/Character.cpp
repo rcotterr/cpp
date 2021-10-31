@@ -66,6 +66,7 @@ AMateria * Character::getMateria(int idx) const {
 }
 
 void Character::equip(AMateria* m) {
+    //TODO only unique
     for(int i=0; i < SIZE; i++) {
         if ((this->_container)[i] == NULL) {
             (this->_container)[i] = m;

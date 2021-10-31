@@ -3,6 +3,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 
 int main() {
@@ -51,6 +52,35 @@ int main() {
     delete character1; //delete ice_clone, cure_clone here
 
     std::cout << std::endl;
+
+
+    std::cout << "   ***check MateriaSource***" << std::endl;
+    MateriaSource *materia_source = new MateriaSource();
+    std::cout << "New materia_source has been created" << std::endl;
+
+    std::cout << "Call materia_source methods: learnMateria, createMateria" << std::endl;
+    MateriaSource materia_source2 = MateriaSource();
+    materia_source2.learnMateria(ice);
+    materia_source2.learnMateria(cure);
+    AMateria * ice_by_materia_source = materia_source2.createMateria("ice");
+    std::cout << "Created ice_by_materia_source with type : " << ice_by_materia_source->getType() << std::endl;
+    delete ice_by_materia_source;
+    AMateria * cure_by_materia_source = materia_source2.createMateria("cure");
+    std::cout << "Created cure_by_materia_source with type : " << cure_by_materia_source->getType() << std::endl;
+    delete cure_by_materia_source;
+    //TODO check errors unknown materia type
+
+
+    MateriaSource materia_source3 = MateriaSource(materia_source2);
+    std::cout << "Created materia_source3 with copy constructor" << std::endl;
+    AMateria * cure_by_materia_source_copy = materia_source3.createMateria("cure");
+    std::cout << "Created cure_by_materia_source_copy with type : " << cure_by_materia_source_copy->getType() << std::endl;
+    delete cure_by_materia_source_copy;
+
+    delete materia_source;
+
+    std::cout << std::endl;
+
 
 
 

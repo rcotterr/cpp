@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-//#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
 int const SIZE = 4;
