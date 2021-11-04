@@ -25,5 +25,5 @@ Cat & Cat::operator=(Cat const &src) {
 }
 
 void Cat::getPolymorphed(void) const {
-    std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
+    std::cout << this->_name << " has been turned into a pink pony!" << std::endl;
 }

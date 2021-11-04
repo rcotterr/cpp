@@ -3,19 +3,19 @@
 #include "Victim.hpp"
 
 Victim::Victim(std::string name) {
-    std::cout << "Some random victim called " << name << " just popped !" << std::endl;
+    std::cout << "Some random victim called " << name << " just popped!" << std::endl;
     this->_name = name;
     return;
 }
 
 Victim::Victim(Victim const & src) {
-    std::cout << "Some random victim called " << src.getName() << " just popped ! By copy constructor" << std::endl;
+    std::cout << "Some random victim called " << src.getName() << " just popped! By copy constructor" << std::endl;
     *this = src;
     return;
 }
 
 Victim::~Victim() {
-    std::cout << "Victim " << this->_name << " just died for no apparent reason !" << std::endl;
+    std::cout << "Victim " << this->_name << " just died for no apparent reason!" << std::endl;
     return;
 }
 
@@ -34,10 +34,10 @@ void Victim::setName(std::string name) {
 }
 
 void Victim::getPolymorphed(void) const {
-    std::cout << this->_name << " has been turned into a cute little sheep !" << std::endl;
+    std::cout << this->_name << " has been turned into a cute little sheep!" << std::endl;
 }
 
 std::ostream & operator<<( std::ostream & o, Victim const & src) {
-    std::cout << "I am " << src.getName() << " and I like otters !" << std::endl;
+    std::cout << "I am " << src.getName() << " and I like otters!" << std::endl;
     return o;
 }

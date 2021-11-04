@@ -3,20 +3,20 @@
 #include "Sorcerer.hpp"
 
 Sorcerer::Sorcerer(std::string name, std::string title) {
-    std::cout << name << ", " << title << ", is born !" << std::endl;
+    std::cout << name << ", " << title << ", is born!" << std::endl;
     this->_name = name;
     this->_title = title;
     return;
 }
 
 Sorcerer::Sorcerer(Sorcerer const & src) {
-    std::cout << src.getName() << ", " << src.getTitle() << ", is born ! By copy constructor" << std::endl;
+    std::cout << src.getName() << ", " << src.getTitle() << ", is born! By copy constructor" << std::endl;
     *this = src;
     return;
 }
 
 Sorcerer::~Sorcerer() {
-    std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same !" << std::endl;
+    std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same!" << std::endl;
     return;
 }
 
@@ -50,6 +50,6 @@ void Sorcerer::polymorph(Victim const & victim) const {
 }
 
 std::ostream & operator<<( std::ostream & o, Sorcerer const & src) {
-    std::cout << "I am " << src.getName() << ", " << src.getTitle() << ", and I like ponies !" << std::endl;
+    std::cout << "I am " << src.getName() << ", " << src.getTitle() << ", and I like ponies!" << std::endl;
     return o;
 }

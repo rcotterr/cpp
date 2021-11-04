@@ -25,5 +25,5 @@ Peon & Peon::operator=(Peon const &src) {
 }
 
 void Peon::getPolymorphed(void) const {
-    std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
+    std::cout << this->_name << " has been turned into a pink pony!" << std::endl;
 }
