@@ -20,7 +20,7 @@ Cure::Cure(Cure const &src) : AMateria(src) {
 }
 
 void Cure::use(ICharacter& target) {
-    this->_xp += 10; //TODO delete here (the same in AMateria class)
+    AMateria::use(target);
     std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
     return;
 }
