@@ -25,7 +25,6 @@ AMateria & AMateria::operator=(AMateria const &src) {
 }
 
 std::string const & AMateria::getType() const {
-//    std::string const & type = this->_type;
     return this->_type;
 }
 
@@ -36,6 +35,5 @@ unsigned int AMateria::getXP() const {
 
 void AMateria::use(ICharacter& target) {
     this->_xp += 10;
-    target.getName(); //TODO delete
-
+    target.getName();
 }

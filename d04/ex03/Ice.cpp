@@ -19,17 +19,11 @@ Ice::Ice(Ice const &src) : AMateria(src) {
     return;
 }
 
-//Ice & Ice::operator=(Ice const &src) {
-//    return *this;
-//}
-
-
 void Ice::use(ICharacter& target) {
     this->_xp += 10; //TODO delete here (the same in AMateria class)
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
     return;
 }
-
 
 Ice* Ice::clone() const {
     Ice *ice_new = new Ice();

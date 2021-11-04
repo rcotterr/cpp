@@ -28,7 +28,12 @@ int main() {
     std::cout << "Clone of cure has been made; type of clone is: " << cure_clone->getType() << std::endl;
 
     Cure cure_to_copy = Cure();
+    Character character_tmp = Character("tmp");
+    std::cout << "cure_to_copy xp is : " << cure_to_copy.getXP() << std::endl;
+    cure_to_copy.use(character_tmp);
+    std::cout << "after use cure_to_copy xp is : " << cure_to_copy.getXP() << std::endl;
     Cure cure_new_overload = Cure(cure_to_copy);
+    std::cout << "cure_new_overload xp is : " << cure_new_overload.getXP() << std::endl;
     std::cout << std::endl;
 
 
@@ -41,6 +46,7 @@ int main() {
     character1->equip(ice);
     character1->use(0, character2);
     character1->unequip(0);
+    std::cout << "Ice xp increased: " << ice->getXP() << std::endl;
 
     character2.equip(ice);
     character2.equip(cure);

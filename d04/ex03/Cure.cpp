@@ -19,17 +19,11 @@ Cure::Cure(Cure const &src) : AMateria(src) {
     return;
 }
 
-//Ice & Ice::operator=(Ice const &src) {
-//    return *this;
-//}
-
-
 void Cure::use(ICharacter& target) {
     this->_xp += 10; //TODO delete here (the same in AMateria class)
     std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
     return;
 }
-
 
 Cure* Cure::clone() const {
     Cure * cure_new = new Cure();
