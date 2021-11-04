@@ -6,7 +6,7 @@ class Cat : public Victim {
     public:
         Cat(std::string name);
         Cat(Cat const & src);
-        ~Cat(void);
+        virtual ~Cat(void);
         Cat & operator=(Cat const & src);
         void getPolymorphed(void) const;
 

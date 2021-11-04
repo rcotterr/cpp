@@ -26,5 +26,8 @@ int main() {
     std::cout << cat1;
     robert.polymorph(cat1);
 
+//    check no class without params
+//    Sorcerer check = Sorcerer();
+
     return 0;
 }

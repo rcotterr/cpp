@@ -8,7 +8,7 @@ Peon::Peon(std::string name) : Victim(name) {
 }
 
 Peon::Peon(Peon const & src) : Victim(src) {
-    std::cout << "Some random victim called " << src.getName() << " just popped! By copy constructor" << std::endl;
+    std::cout << "Some random victim called " << src.getName() << " just appeared! By copy constructor" << std::endl;
     *this = src;
     return;
 }

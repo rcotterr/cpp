@@ -3,13 +3,13 @@
 #include "Victim.hpp"
 
 Victim::Victim(std::string name) {
-    std::cout << "Some random victim called " << name << " just popped!" << std::endl;
+    std::cout << "Some random victim called " << name << " just appeared!" << std::endl;
     this->_name = name;
     return;
 }
 
 Victim::Victim(Victim const & src) {
-    std::cout << "Some random victim called " << src.getName() << " just popped! By copy constructor" << std::endl;
+    std::cout << "Some random victim called " << src.getName() << " just appeared! By copy constructor" << std::endl;
     *this = src;
     return;
 }
