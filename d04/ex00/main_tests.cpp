@@ -20,5 +20,11 @@ int main() {
     std::cout << peon1;
     robert.polymorph(peon1);
 
+    Cat cat1 = Cat("cat1");
+    Cat cat2 = Cat(cat1);
+    cat1.getPolymorphed();
+    std::cout << cat1;
+    robert.polymorph(cat1);
+
     return 0;
 }

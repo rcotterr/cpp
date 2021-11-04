@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Peon.hpp"
+#include "Cat.hpp"
 
 class Sorcerer {
     public:
