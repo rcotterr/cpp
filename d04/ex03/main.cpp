@@ -50,7 +50,7 @@ int main() {
 
     character2.equip(ice);
     character2.equip(cure);
-    Character character3 = Character(character2); //TODO check with existing (memory leaks)
+    Character character3 = Character(character2);
     std::cout << "Created character3 with copy constructor: " << character3.getName() << std::endl;
 
     character1->equip(ice_clone);
@@ -74,8 +74,9 @@ int main() {
     AMateria * cure_by_materia_source = materia_source2.createMateria("cure");
     std::cout << "Created cure_by_materia_source with type : " << cure_by_materia_source->getType() << std::endl;
     delete cure_by_materia_source;
-    //TODO check errors unknown materia type
 
+    AMateria * smth = materia_source2.createMateria("some unknown materia");
+    std::cout << "Check error unknown materia type : " << smth << std::endl;
 
     MateriaSource materia_source3 = MateriaSource(materia_source2);
     std::cout << "Created materia_source3 with copy constructor" << std::endl;
@@ -84,13 +85,7 @@ int main() {
     delete cure_by_materia_source_copy;
 
     delete materia_source;
-
     std::cout << std::endl;
-
-
-
-
-    // connections (a lot of materia, no materia at all and so on)
 
 
     std::cout << "   ***check SubjectMain***" << std::endl;
