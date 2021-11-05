@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "SuperMutant.hpp"
+#include "OneMoreEnemy.hpp"
 
 
 class RadScorpion : public Enemy

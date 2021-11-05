@@ -3,7 +3,7 @@
 
 class AWeapon
 {
-    private:
+    protected:
         std::string _name;
         int _apcost;
         int _damage;

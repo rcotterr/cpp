@@ -16,6 +16,9 @@ PlasmaRifle::~ PlasmaRifle() {
 }
 
 PlasmaRifle &  PlasmaRifle::operator=( PlasmaRifle const &src) {
+    this->_name = src.getName();
+    this->_apcost = src.getAPCost();
+    this->_damage = src.getDamage();
     return *this;
 }
 

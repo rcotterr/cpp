@@ -33,6 +33,20 @@ int main() {
     std::cout << "after copy super_mutant_equal xp is : " << super_mutant_equal.getHP() << std::endl;
     std::cout << std::endl;
 
+    std::cout << "   ***check OneMoreEnemy***" << std::endl;
+    OneMoreEnemy one_more_enemy = OneMoreEnemy();
+    OneMoreEnemy one_more_enemy_new = OneMoreEnemy(one_more_enemy);
+    std::cout << "type of one_more_enemy is : " << one_more_enemy.getType() << std::endl;
+    std::cout << "hp of one_more_enemy is : " << one_more_enemy.getHP() << std::endl;
+    one_more_enemy.takeDamage(9);
+    std::cout << "after takeDamage(9) hp of one_more_enemy is : " << one_more_enemy.getHP() << std::endl;
+    OneMoreEnemy one_more_enemy_copy = OneMoreEnemy(one_more_enemy);
+    std::cout << "after copy super_mutant_copy xp is : " << one_more_enemy_copy.getHP() << std::endl;
+    OneMoreEnemy one_more_enemy_equal;
+    one_more_enemy_equal = one_more_enemy;
+    std::cout << "after copy one_more_enemy_equal xp is : " << one_more_enemy_equal.getHP() << std::endl;
+    std::cout << std::endl;
+
     std::cout << "   ***check RadScorpion***" << std::endl;
     RadScorpion red_scorpion = RadScorpion();
     RadScorpion red_scorpion_new = RadScorpion(red_scorpion);
@@ -60,6 +74,12 @@ int main() {
     std::cout << character;
     Character character_equal = character;
     std::cout << "character_equal " << character_equal;
+    Character character_for_one_more = Character("character_for_one_more");
+    PowerFist power_fist_one_more = PowerFist();
+    character_for_one_more.equip(&power_fist_one_more);
+    character_for_one_more.attack(&one_more_enemy);
+    std::cout << character_for_one_more;
+
     std::cout << "check attack fail without enough ap: " << std::endl;
     Character character_attack = Character("character2");
     PowerFist power_fist_attack = PowerFist();
