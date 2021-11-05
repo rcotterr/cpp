@@ -19,9 +19,9 @@ class Character
         void recoverAP();
         void equip(AWeapon* weapon);
         void attack(Enemy* enemy);
-        std::string const getName() const; //[...]? const?
-        int getAp() const; //[...]? const?
-        AWeapon* getWeapon() const; //[...]? const?
+        std::string const getName() const;
+        int getAp() const;
+        AWeapon* getWeapon() const;
 };
 
 

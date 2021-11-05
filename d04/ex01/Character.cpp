@@ -36,6 +36,8 @@ Character & Character::operator=(Character const &src) {
         std::cout << "Character operator = call for " << src.getName() << std::endl;
     }
     this->_name = src.getName();
+    this->_ap = src.getAp();
+    this->_weapon = src.getWeapon();
     return *this;
 }
 
@@ -56,7 +58,6 @@ void Character::attack(Enemy* enemy) {
     std::cout << this->_name << " attacks " << enemy->getType() << " with a " << this->_weapon->getName() << std::endl;
     if (this->_weapon != NULL) {
         this->_ap -= this->_weapon->getAPCost();
-        std::cout << this->_ap << std::endl;
         if (this->_ap < 0) {
             this->_ap = 0;
             return;

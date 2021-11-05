@@ -51,10 +51,15 @@ int main() {
     Character character = Character("character1");
     Character character_new = Character(character);
     std::cout << "name of character is : " << character.getName() << std::endl;
+    std::cout << "ap of character is : " << character.getAp() << std::endl;
     character.recoverAP();
+    std::cout << "after recover with max ap of character is : " << character.getAp() << std::endl;
     character.equip(&power_fist);
     character.attack(&red_scorpion);
-    std::cout << character << std::endl;
+    std::cout << "after attack power_fist ap of character is : " << character.getAp() << std::endl;
+    std::cout << character;
+    Character character_equal = character;
+    std::cout << "character_equal " << character_equal;
     std::cout << std::endl;
 
 
