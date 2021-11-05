@@ -18,12 +18,11 @@ AssaultTerminator::AssaultTerminator(AssaultTerminator const &src) {
 }
 
 AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const &src) {
-    src.battleCry(); //TODO operator=
+    (void)src;
     return *this;
 }
 
 ISpaceMarine * AssaultTerminator::clone() const {
-    //TODO make copy of object
     AssaultTerminator * copy = new AssaultTerminator();
     return copy;
 }

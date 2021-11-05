@@ -18,12 +18,11 @@ TacticalMarine::TacticalMarine(TacticalMarine const &src) {
 }
 
 TacticalMarine & TacticalMarine::operator=(TacticalMarine const &src) {
-    src.battleCry(); //TODO operator=
+    (void)src;
     return *this;
 }
 
 ISpaceMarine * TacticalMarine::clone() const {
-    //TODO make copy of object
     TacticalMarine * copy = new TacticalMarine();
     return copy;
 }
