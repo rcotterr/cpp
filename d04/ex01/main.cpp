@@ -60,6 +60,24 @@ int main() {
     std::cout << character;
     Character character_equal = character;
     std::cout << "character_equal " << character_equal;
+    std::cout << "check attack fail without enough ap: " << std::endl;
+    Character character_attack = Character("character2");
+    PowerFist power_fist_attack = PowerFist();
+    character_attack.equip(&power_fist_attack);
+    SuperMutant super_mutant_attack = SuperMutant();
+    character_attack.attack(&super_mutant_attack);
+    std::cout << character_attack;
+    character_attack.attack(&super_mutant_attack);
+    std::cout << character_attack;
+    character_attack.attack(&super_mutant_attack);
+    std::cout << character_attack;
+    character_attack.attack(&super_mutant_attack);
+    std::cout << character_attack;
+    character_attack.attack(&super_mutant_attack);
+    std::cout << character_attack;
+    std::cout << "super_mutant_attack hp is: " << super_mutant_attack.getHP() << std::endl;
+    character_attack.attack(&super_mutant_attack);
+    std::cout << "after attack super_mutant_attack hp is: " << super_mutant_attack.getHP() << std::endl;
     std::cout << std::endl;
 
 
