@@ -7,6 +7,7 @@ class Enemy
         int _hp;
         std::string _type;
     public:
+        Enemy();
         Enemy(int hp, std::string const & type);
         Enemy(Enemy const & src);
         Enemy & operator=(Enemy const & src);

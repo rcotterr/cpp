@@ -11,6 +11,7 @@ class Character
         AWeapon* _weapon;
 
     public:
+        Character();
         Character(std::string const & name);
         Character(Character const &src);
         virtual ~Character();
