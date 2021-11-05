@@ -3,29 +3,23 @@
 #include "PowerFist.hpp"
 
 PowerFist::PowerFist() :  AWeapon("Power Fist", 8, 50) {
-    std::cout << "PowerFist constructor call" << std::endl;
     return;
 }
 
- PowerFist:: PowerFist( PowerFist const &src) : AWeapon(src) {
-    std::cout << "PowerFist copy constructor call" << std::endl;
+PowerFist:: PowerFist( PowerFist const &src) : AWeapon(src) {
     *this = src;
     return;
 }
 
- PowerFist::~ PowerFist() {
-    std::cout << "PowerFist destructor call" << std::endl;
+PowerFist::~ PowerFist() {
     return;
 }
 
- PowerFist &  PowerFist::operator=( PowerFist const &src) {
-    std::cout << "PowerFist operator = call for " << src.getName() << std::endl;
+PowerFist &  PowerFist::operator=( PowerFist const &src) {
     return *this;
 }
 
-
 std::string  PowerFist::getName() const {
-//    std::cout << " PowerFist getName call for " << this->getName() << std::endl;
     return AWeapon::getName();
 }
 
