@@ -31,8 +31,20 @@ int main() {
     std::cout << "size of squad is : " << squad->getCount() << std::endl;
     delete squad;
     std::cout << std::endl;
-    //TODO check null, same pointer, out of size, negative index
+    std::cout << "check null, same pointer, out of size, negative index : "<< std::endl;
+    TacticalMarine * tactical_marine_check_errors = new TacticalMarine();
+    squad1.push(tactical_marine_check_errors);
+    std::cout << "size of squad1 is : " << squad1.getCount() << std::endl;
+    squad1.push(NULL);
+    std::cout << "after push NULL size of squad1 is : " << squad1.getCount() << std::endl;
+    squad1.push(tactical_marine_check_errors);
+    std::cout << "after push the same SpaceMarine size of squad1 is : " << squad1.getCount() << std::endl;
+    ISpaceMarine* some_tactical_marine = squad1.getUnit(-2);
+    std::cout << "some_tactical_marine : " << some_tactical_marine << std::endl;
+    ISpaceMarine* some_other_tactical_marine = squad1.getUnit(2);
+    std::cout << "some_other_tactical_marine : " << some_other_tactical_marine << std::endl;
 
+    std::cout << std::endl;
 
     std::cout << "   ***check SubjectMain***" << std::endl;
     ISpaceMarine* bob = new TacticalMarine;
