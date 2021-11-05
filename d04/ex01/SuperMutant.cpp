@@ -11,8 +11,7 @@ SuperMutant::SuperMutant() : Enemy(super_mutant_hp, super_mutant_type) {
 }
 
 SuperMutant::SuperMutant(SuperMutant const &src) : Enemy(src) {
-    std::cout << "SuperMutant copy constructor call for " << src.getType() << std::endl;
-//    *this = src;
+    *this = src;
     return;
 }
 
@@ -21,14 +20,11 @@ SuperMutant::~SuperMutant() {
     return;
 }
 
-//SuperMutant & SuperMutant::operator=(SuperMutant const &src) {
-////    std::cout << "SuperMutant operator = call for " << src.getName() << std::endl;
-////    this->_type = src.getType();
-////    this->_hp = src.getHP();
-//    return *this;
-//}
-
-//TODO check operator= and copy constructor
+SuperMutant & SuperMutant::operator=(SuperMutant const &src) {
+    this->_type = src.getType();
+    this->_hp = src.getHP();
+    return *this;
+}
 
 
 void SuperMutant::takeDamage(int damage) {
@@ -38,6 +34,8 @@ void SuperMutant::takeDamage(int damage) {
     else {
         this->_hp -= (damage / 3);
     }
-//    std::cout << "SuperMutant getDamage call for " << this->_name << std::endl;
+    if (this->_hp < 0) {
+        this->_hp = 0;
+    }
     return;
 }

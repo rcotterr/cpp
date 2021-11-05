@@ -12,7 +12,7 @@ RadScorpion::RadScorpion() : Enemy(red_scorpion_hp, red_scorpion_type) {
 
 RadScorpion::RadScorpion(RadScorpion const &src) : Enemy(src) {
     std::cout << "RadScorpion copy constructor call for " << src.getType() << std::endl;
-//    *this = src;
+    *this = src;
     return;
 }
 
@@ -21,12 +21,10 @@ RadScorpion::~RadScorpion() {
     return;
 }
 
-//RadScorpion & RadScorpion::operator=(RadScorpion const &src) {
-////    std::cout << "RadScorpion operator = call for " << src.getName() << std::endl;
-////    this->_type = src.getType();
-////    this->_hp = src.getHP();
-//    return *this;
-//}
-
-//TODO check operator= and copy constructor
+RadScorpion & RadScorpion::operator=(RadScorpion const &src) {
+    std::cout << "RadScorpion operator = call for " << src.getType() << std::endl;
+    this->_type = src.getType();
+    this->_hp = src.getHP();
+    return *this;
+}
 

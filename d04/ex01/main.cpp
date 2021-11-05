@@ -26,6 +26,11 @@ int main() {
     std::cout << "hp of super_mutant is : " << super_mutant.getHP() << std::endl;
     super_mutant.takeDamage(9);
     std::cout << "after takeDamage(9) hp of super_mutant is : " << super_mutant.getHP() << std::endl;
+    SuperMutant super_mutant_copy = SuperMutant(super_mutant);
+    std::cout << "after copy super_mutant_copy xp is : " << super_mutant_copy.getHP() << std::endl;
+    SuperMutant super_mutant_equal;
+    super_mutant_equal = super_mutant;
+    std::cout << "after copy super_mutant_equal xp is : " << super_mutant_equal.getHP() << std::endl;
     std::cout << std::endl;
 
     std::cout << "   ***check RadScorpion***" << std::endl;
@@ -35,6 +40,11 @@ int main() {
     std::cout << "hp of red_scorpion is : " << red_scorpion.getHP() << std::endl;
     red_scorpion.takeDamage(9);
     std::cout << "after takeDamage(9) hp of red_scorpion is : " << red_scorpion.getHP() << std::endl;
+    RadScorpion red_scorpion_copy = RadScorpion(red_scorpion);
+    std::cout << "after copy red_scorpion_copy xp is : " << red_scorpion_copy.getHP() << std::endl;
+    RadScorpion red_scorpion_equal;
+    red_scorpion_equal = red_scorpion;
+    std::cout << "after copy red_scorpion_equal xp is : " << red_scorpion_equal.getHP() << std::endl;
     std::cout << std::endl;
 
     std::cout << "   ***check Character***" << std::endl;
