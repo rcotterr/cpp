@@ -4,6 +4,7 @@
 
 class Cat : public Victim {
     public:
+        Cat();
         Cat(std::string name);
         Cat(Cat const & src);
         virtual ~Cat(void);

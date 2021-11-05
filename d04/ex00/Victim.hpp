@@ -3,6 +3,7 @@
 
 class Victim {
     public:
+        Victim();
         Victim(std::string name);
         Victim(Victim const & src);
         virtual ~Victim(void);

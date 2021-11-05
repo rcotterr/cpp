@@ -4,6 +4,7 @@
 
 class Peon : public Victim {
     public:
+        Peon();
         Peon(std::string name);
         Peon(Peon const & src);
         virtual ~Peon(void);
