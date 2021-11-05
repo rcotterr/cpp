@@ -19,6 +19,11 @@ Cure::Cure(Cure const &src) : AMateria(src) {
     return;
 }
 
+Cure & Cure::operator=(Cure const &src) {
+    this->_xp = src.getXP();
+    return *this;
+}
+
 void Cure::use(ICharacter& target) {
     AMateria::use(target);
     std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;

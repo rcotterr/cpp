@@ -8,6 +8,7 @@ class Ice : public AMateria
         Ice();
         virtual ~Ice();
         Ice(Ice const &src);
+        Ice & operator=(Ice const &src);
         virtual Ice* clone() const;
         virtual void use(ICharacter& target);
 };

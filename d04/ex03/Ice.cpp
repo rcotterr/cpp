@@ -19,6 +19,11 @@ Ice::Ice(Ice const &src) : AMateria(src) {
     return;
 }
 
+Ice & Ice::operator=(Ice const &src) {
+    this->_xp = src.getXP();
+    return *this;
+}
+
 void Ice::use(ICharacter& target) {
     AMateria::use(target);
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;

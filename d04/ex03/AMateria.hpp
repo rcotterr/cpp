@@ -17,8 +17,8 @@ class AMateria
         virtual ~AMateria();
         AMateria(AMateria const &src);
         AMateria & operator=(AMateria const &src);
-        std::string const & getType() const; //Returns the materia type
-        unsigned int getXP() const; //Returns the Materia's XP
+        std::string const & getType() const;
+        unsigned int getXP() const;
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 };
