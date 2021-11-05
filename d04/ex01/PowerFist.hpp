@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "PlasmaRifle.hpp"
+#include "OneMoreWeapon.hpp"
 
 class PowerFist : public AWeapon
 {

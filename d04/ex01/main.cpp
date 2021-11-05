@@ -19,6 +19,13 @@ int main() {
     power_fist.attack();
     std::cout << std::endl;
 
+    std::cout << "   ***check OneMoreWeapon***" << std::endl;
+    OneMoreWeapon one_more_weapon = OneMoreWeapon();
+    OneMoreWeapon one_more_weapon_new = OneMoreWeapon(one_more_weapon);
+    std::cout << "name of one_more_weapon is : " << one_more_weapon.getName() << std::endl;
+    one_more_weapon.attack();
+    std::cout << std::endl;
+
     std::cout << "   ***check SuperMutant***" << std::endl;
     SuperMutant super_mutant = SuperMutant();
     SuperMutant super_mutant_new = SuperMutant(super_mutant);
@@ -74,9 +81,9 @@ int main() {
     std::cout << character;
     Character character_equal = character;
     std::cout << "character_equal " << character_equal;
+
     Character character_for_one_more = Character("character_for_one_more");
-    PowerFist power_fist_one_more = PowerFist();
-    character_for_one_more.equip(&power_fist_one_more);
+    character_for_one_more.equip(&one_more_weapon);
     character_for_one_more.attack(&one_more_enemy);
     std::cout << character_for_one_more;
 
