@@ -7,7 +7,7 @@ const int MIN_GRADE = 150;
 class Bureaucrat
 {
     private:
-        std::string _name;
+        const std::string _name;
         int _grade;
 
     public:
@@ -20,7 +20,7 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
-        //TODO make _name const
+        //TODO check _name const
 
         class GradeTooHighException : public std::exception
         {

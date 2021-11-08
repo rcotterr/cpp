@@ -18,6 +18,10 @@ int main() {
     std::cout << "bureaucrat_copy is : " << bureaucrat_copy;
     Bureaucrat bureaucrat_equal = bureaucrat;
     std::cout << "bureaucrat_equal is : " << bureaucrat_equal;
+    Bureaucrat bureaucrat_const = Bureaucrat("some_const_name", 70);
+    std::cout << "bureaucrat_const is : " << bureaucrat_const;
+    bureaucrat_const = bureaucrat;
+    std::cout << "after equal bureaucrat_const is : " << bureaucrat_const;
     std::cout << std::endl;
 
 

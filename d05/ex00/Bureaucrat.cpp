@@ -2,14 +2,13 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
     if (grade < MAX_GRADE) {
         throw Bureaucrat::GradeTooHighException();
     }
     if (grade > MIN_GRADE) {
         throw Bureaucrat::GradeTooLowException();
     }
-    this->_name = name;
     this->_grade = grade;
     return;
 }
@@ -19,12 +18,11 @@ Bureaucrat::~Bureaucrat() {
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & src) {
-    this->_name = src.getName();
     this->_grade = src.getGrade();
     return *this;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) {
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src.getName()){
     *this = src;
     return;
 }
