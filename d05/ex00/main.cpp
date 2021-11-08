@@ -21,14 +21,23 @@ int main() {
     std::cout << std::endl;
 
 
-//try
-//{
-///* do some stuff with bureaucrats */
-//}
-//catch (std::exception & e)
-//{
-///* handle exception */
-//}
+    try
+    {
+        Bureaucrat bureaucrat_big_grade = Bureaucrat("bureaucrat_big_grade", 0);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        Bureaucrat bureaucrat_low_grade = Bureaucrat("bureaucrat_low_grade", 151);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
 
     return 0;
 }

@@ -3,6 +3,12 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) {
+    if (grade < MAX_GRADE) {
+        throw Bureaucrat::GradeTooHighException();
+    }
+    if (grade > MIN_GRADE) {
+        throw Bureaucrat::GradeTooLowException();
+    }
     this->_name = name;
     this->_grade = grade;
     return;

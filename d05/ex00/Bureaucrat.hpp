@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+const int MAX_GRADE = 1;
+const int MIN_GRADE = 150;
+
 class Bureaucrat
 {
     private:
@@ -17,10 +20,24 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
-        //TODO exceptions
-        //TODO limits 1-150
-
         //TODO make _name const
+
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                virtual const char * what() const throw()
+                {
+                    return ("The grade is too high");
+                }
+        };
+                class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char * what() const throw()
+                {
+                    return ("The grade is too low");
+                }
+        };
 };
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & src);
