@@ -46,10 +46,12 @@ bool Form::getIsSigned() const {
 void Form::beSigned(Bureaucrat bureaucrat) {
     int grade = bureaucrat.getGrade();
     if (grade > this->_sign_grade) {
+        bureaucrat.signForm(false, this->_name, "The grade is too low");
         throw Form::GradeTooLowException();
     }
     else {
         this->_is_signed = true;
+        bureaucrat.signForm(true, this->_name, "");
     }
     return;
 }

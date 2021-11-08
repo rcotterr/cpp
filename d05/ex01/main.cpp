@@ -54,6 +54,17 @@ int main() {
     form.beSigned(bureaucrat_sign);
     std::cout << "after signed: " << form;
 
+//    TODO
+//        Bureaucrat bureaucrat_copy = Bureaucrat(bureaucrat);
+//    std::cout << "bureaucrat_copy is : " << bureaucrat_copy;
+//    Bureaucrat bureaucrat_equal = bureaucrat;
+//    std::cout << "bureaucrat_equal is : " << bureaucrat_equal;
+//    Bureaucrat bureaucrat_const = Bureaucrat("some_const_name", 70);
+//    std::cout << "bureaucrat_const is : " << bureaucrat_const;
+//    bureaucrat_const = bureaucrat;
+//    std::cout << "after equal bureaucrat_const is : " << bureaucrat_const;
+
+
     try
     {
         Form form_big_sign_grade = Form("form_big_sign_grade", 0, 10);
