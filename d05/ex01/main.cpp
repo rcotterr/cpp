@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
     std::cout << "   ***check Bureaucrat***" << std::endl;
     Bureaucrat bureaucrat = Bureaucrat("bureaucrat", 100);
-    std::cout << "Name of Bureaucrat is: " << bureaucrat.getName() << std::endl;
-    std::cout << "Grade of Bureaucrat is: " << bureaucrat.getGrade() << std::endl;
+    std::cout << "Name of bureaucrat is: " << bureaucrat.getName() << std::endl;
+    std::cout << "Grade of bureaucrat is: " << bureaucrat.getGrade() << std::endl;
     std::cout << bureaucrat;
     bureaucrat.incrementGrade();
     std::cout << "after increment: " << bureaucrat;
@@ -22,8 +22,6 @@ int main() {
     std::cout << "bureaucrat_const is : " << bureaucrat_const;
     bureaucrat_const = bureaucrat;
     std::cout << "after equal bureaucrat_const is : " << bureaucrat_const;
-    std::cout << std::endl;
-
 
     try
     {
@@ -42,6 +40,18 @@ int main() {
     {
         std::cout << "exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl;
+
+
+    std::cout << "   ***check Form***" << std::endl;
+    Form form = Form("form", 10, 100);
+    std::cout << "Name of form is: " << form.getName() << std::endl;
+    std::cout << "Sign grade of form is: " << form.getSignGrade() << std::endl;
+    std::cout << "Execute grade of form is: " << form.getExecuteGrade() << std::endl;
+    std::cout << "Signed of form is: " << form.getIsSigned() << std::endl;
+    std::cout << form;
+
+    std::cout << std::endl;
 
     return 0;
 }
