@@ -42,76 +42,6 @@ int main() {
     std::cout << std::endl;
 
 
-    std::cout << "   ***check Form***" << std::endl;
-    Form form = Form("form", 10, 100);
-    std::cout << "Name of form is: " << form.getName() << std::endl;
-    std::cout << "Sign grade of form is: " << form.getSignGrade() << std::endl;
-    std::cout << "Execute grade of form is: " << form.getExecuteGrade() << std::endl;
-    std::cout << "Signed of form is: " << form.getIsSigned() << std::endl;
-    std::cout << form;
-    Bureaucrat bureaucrat_sign = Bureaucrat("bureaucrat_sign", 5);
-    form.beSigned(bureaucrat_sign);
-    std::cout << "after signed: " << form;
-    form.beSigned(bureaucrat_sign);
-
-    Form form_copy = Form(form);
-    std::cout << "form_copy is : " << form_copy;
-    Form form_equal = form;
-    std::cout << "form_equal is : " << form_equal;
-    Form form_const = Form("some_const_name", 70, 71);
-    std::cout << "form_const is : " << form_const;
-    form_const = form;
-    std::cout << "after equal form_const is : " << form_const;
-
-    try
-    {
-        Form form_big_sign_grade = Form("form_big_sign_grade", 0, 10);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Form form_big_exec_grade = Form("form_big_exec_grade", 5, 0);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Form form_big_sign_grade = Form("form_low_sign_grade", 151, 10);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Form form_big_exec_grade = Form("form_low_exec_grade", 5, 152);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "exception: " << e.what() << std::endl;
-    }
-
-    Form some_form = Form("some_form", 1, 100);
-    try
-    {
-        some_form.beSigned(bureaucrat);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "signed exception: " << e.what() << std::endl;
-    }
-
-    std::cout << std::endl;
-
-
     std::cout << "   ***check ShrubberyCreationForm***" << std::endl;
     ShrubberyCreationForm shrubbery_creation_form = ShrubberyCreationForm("home");
     std::cout << "Target of shrubbery_creation_form is: " << shrubbery_creation_form.getTarget() << std::endl;
@@ -129,8 +59,18 @@ int main() {
     shrubbery_creation_form_const = shrubbery_creation_form;
     std::cout << "after equal shrubbery_creation_form_const is : " << shrubbery_creation_form_const;
 
+    shrubbery_creation_form.execute(bureaucrat);
+    Bureaucrat bureaucrat_low_grade = Bureaucrat("bureaucrat_low_grade", 150);
+    try
+    {
+        shrubbery_creation_form.execute(bureaucrat_low_grade);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
 
-
+    std::cout << std::endl;
 
     return 0;
 }

@@ -60,6 +60,18 @@ void Form::beSigned(Bureaucrat bureaucrat) {
     return;
 }
 
+bool Form::validateExecution(Bureaucrat const & executor) const {
+    if (!this->_is_signed) {
+//        TODO check throw
+        return false;
+    }
+    if (executor.getGrade() > this->_execute_grade) {
+        throw Form::GradeTooLowException();
+        return false;
+    }
+    return true;
+}
+
 std::ostream & operator<<( std::ostream & o, Form const & src) {
     std::cout << src.getName() << ", sign grade: " << src.getSignGrade() << ", execute grade: " << src.getExecuteGrade() << ", is signed: " << src.getIsSigned() << std::endl;
     return o;

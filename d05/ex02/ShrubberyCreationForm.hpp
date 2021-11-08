@@ -10,10 +10,10 @@ class ShrubberyCreationForm : public Form
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(std::string target);
-        ~ShrubberyCreationForm();
+        virtual ~ShrubberyCreationForm();
         ShrubberyCreationForm & operator=(ShrubberyCreationForm const & src);
         ShrubberyCreationForm(ShrubberyCreationForm const & src);
         std::string getTarget() const;
-        //TODO execute
+        void execute(Bureaucrat const & executor) const;
 
 };
