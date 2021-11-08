@@ -54,6 +54,44 @@ int main() {
     form.beSigned(bureaucrat_sign);
     std::cout << "after signed: " << form;
 
+    try
+    {
+        Form form_big_sign_grade = Form("form_big_sign_grade", 0, 10);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        Form form_big_exec_grade = Form("form_big_exec_grade", 5, 0);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        Form form_big_sign_grade = Form("form_low_sign_grade", 151, 10);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+
+    try
+    {
+        Form form_big_exec_grade = Form("form_low_exec_grade", 5, 152);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+
 
     std::cout << std::endl;
 

@@ -3,8 +3,13 @@
 #include "Form.hpp"
 
 Form::Form(std::string name, int sign_grade, int execute_grade) : _name(name), _sign_grade(sign_grade), _execute_grade(execute_grade) {
+    if (sign_grade < MAX_GRADE || execute_grade < MAX_GRADE) {
+        throw Form::GradeTooHighException();
+    }
+    if (sign_grade > MIN_GRADE || execute_grade > MIN_GRADE) {
+        throw Form::GradeTooLowException();
+    }
     this->_is_signed = false;
-    //TODO exeps
     return;
 }
 
