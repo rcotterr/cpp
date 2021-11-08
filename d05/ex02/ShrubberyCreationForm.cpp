@@ -17,6 +17,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & src) {
     this->_target = src.getTarget();
+    Form::operator=(src);
     return *this;
 }
 

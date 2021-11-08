@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
     std::cout << "   ***check Bureaucrat***" << std::endl;
@@ -12,7 +12,6 @@ int main() {
     std::cout << "after increment: " << bureaucrat;
     bureaucrat.decrementGrade();
     std::cout << "after decrement: " << bureaucrat;
-
 
     Bureaucrat bureaucrat_copy = Bureaucrat(bureaucrat);
     std::cout << "bureaucrat_copy is : " << bureaucrat_copy;
@@ -111,6 +110,27 @@ int main() {
     }
 
     std::cout << std::endl;
+
+
+    std::cout << "   ***check ShrubberyCreationForm***" << std::endl;
+    ShrubberyCreationForm shrubbery_creation_form = ShrubberyCreationForm("home");
+    std::cout << "Target of shrubbery_creation_form is: " << shrubbery_creation_form.getTarget() << std::endl;
+    std::cout << shrubbery_creation_form;
+
+    shrubbery_creation_form.beSigned(bureaucrat);
+    std::cout << "after signed: " << shrubbery_creation_form;
+
+    ShrubberyCreationForm shrubbery_creation_form_copy = ShrubberyCreationForm(shrubbery_creation_form);
+    std::cout << "shrubbery_creation_form_copy is : " << shrubbery_creation_form_copy;
+    ShrubberyCreationForm shrubbery_creation_form_equal = shrubbery_creation_form;
+    std::cout << "shrubbery_creation_form_equal is : " << shrubbery_creation_form_equal;
+    ShrubberyCreationForm shrubbery_creation_form_const = ShrubberyCreationForm("some_target");
+    std::cout << "shrubbery_creation_form_const is : " << shrubbery_creation_form_const;
+    shrubbery_creation_form_const = shrubbery_creation_form;
+    std::cout << "after equal shrubbery_creation_form_const is : " << shrubbery_creation_form_const;
+
+
+
 
     return 0;
 }
