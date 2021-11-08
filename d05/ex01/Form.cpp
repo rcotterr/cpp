@@ -4,6 +4,7 @@
 
 Form::Form(std::string name, int sign_grade, int execute_grade) : _name(name), _sign_grade(sign_grade), _execute_grade(execute_grade) {
     this->_is_signed = false;
+    //TODO exeps
     return;
 }
 
@@ -35,6 +36,17 @@ int Form::getExecuteGrade() const {
 
 bool Form::getIsSigned() const {
     return this->_is_signed;
+}
+
+void Form::beSigned(Bureaucrat bureaucrat) {
+    int grade = bureaucrat.getGrade();
+    if (grade > this->_sign_grade) {
+        throw Form::GradeTooLowException();
+    }
+    else {
+        this->_is_signed = true;
+    }
+    return;
 }
 
 std::ostream & operator<<( std::ostream & o, Form const & src) {

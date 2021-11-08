@@ -50,6 +50,10 @@ int main() {
     std::cout << "Execute grade of form is: " << form.getExecuteGrade() << std::endl;
     std::cout << "Signed of form is: " << form.getIsSigned() << std::endl;
     std::cout << form;
+    Bureaucrat bureaucrat_sign = Bureaucrat("bureaucrat_sign", 5);
+    form.beSigned(bureaucrat_sign);
+    std::cout << "after signed: " << form;
+
 
     std::cout << std::endl;
 
