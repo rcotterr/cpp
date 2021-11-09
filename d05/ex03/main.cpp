@@ -159,11 +159,23 @@ int main() {
     Intern intern_copy = Intern(intern);
     Intern intern_equal = intern;
 
-    Form * some_form = intern.makeForm("robotomy request", "robotomy request target");
-    std::cout << "Form name some_form: " << some_form->getName() << std::endl;
+    Form * some_robotomy_request_form = intern.makeForm("robotomy request", "robotomy request target");
+    std::cout << "Form name some_robotomy_request_form: " << some_robotomy_request_form->getName() << std::endl;
+    some_robotomy_request_form->beSigned(bureaucrat_high_grade);
+    some_robotomy_request_form->execute(bureaucrat_high_grade);
+    delete some_robotomy_request_form;
 
-    delete some_form;
+    Form * some_shrubbery_creation_form = intern.makeForm("shrubbery creation", "shrubbery creation target");
+    std::cout << "Form name some_shrubbery_creation_form: " << some_shrubbery_creation_form->getName() << std::endl;
+    some_shrubbery_creation_form->beSigned(bureaucrat_high_grade);
+    some_shrubbery_creation_form->execute(bureaucrat_high_grade);
+    delete some_shrubbery_creation_form;
 
+    Form * some_presidential_pardon_form = intern.makeForm("presidential pardon", "presidential pardon target");
+    std::cout << "Form name some_presidential_pardon_form: " << some_presidential_pardon_form->getName() << std::endl;
+    some_presidential_pardon_form->beSigned(bureaucrat_high_grade);
+    some_presidential_pardon_form->execute(bureaucrat_high_grade);
+    delete some_presidential_pardon_form;
     std::cout << std::endl;
 
 
