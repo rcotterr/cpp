@@ -4,6 +4,8 @@
 const int MAX_GRADE = 1;
 const int MIN_GRADE = 150;
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -21,6 +23,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         void signForm(bool success, std::string form_name, std::string reason);
+        void executeForm(Form const & form);
 
         class GradeTooHighException : public std::exception
         {

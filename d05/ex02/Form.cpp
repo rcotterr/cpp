@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(std::string name, int sign_grade, int execute_grade) : _name(name), _sign_grade(sign_grade), _execute_grade(execute_grade) {
     if (sign_grade < MAX_GRADE || execute_grade < MAX_GRADE) {

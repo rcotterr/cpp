@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
     if (grade < MAX_GRADE) {
@@ -48,8 +49,21 @@ void Bureaucrat::signForm(bool success, std::string form_name, std::string reaso
         std::cout << this->_name <<" signs " << form_name << std::endl;
     }
     else {
-        std::cout << this->_name <<" cannot sign " << form_name << " because " << reason << std::endl;
+        std::cout << this->_name << " cannot sign " << form_name << " because " << reason << std::endl;
     }
+}
+
+void Bureaucrat::executeForm(Form const & form) {
+    try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executes " << form.getName() << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
 }
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & src) {
