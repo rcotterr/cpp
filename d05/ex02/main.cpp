@@ -70,6 +70,10 @@ int main() {
         std::cout << "exception: " << e.what() << std::endl;
     }
 
+    ShrubberyCreationForm shrubbery_creation_form_not_signed = ShrubberyCreationForm("not_signed_smth");
+    std::cout << shrubbery_creation_form_not_signed;
+    shrubbery_creation_form_not_signed.execute(bureaucrat);
+
     std::cout << std::endl;
 
     return 0;

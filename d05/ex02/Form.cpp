@@ -63,6 +63,7 @@ void Form::beSigned(Bureaucrat bureaucrat) {
 bool Form::validateExecution(Bureaucrat const & executor) const {
     if (!this->_is_signed) {
 //        TODO check throw
+        std::cout << this->_name << " form is not signed so it can't be execute" << std::endl;
         return false;
     }
     if (executor.getGrade() > this->_execute_grade) {
