@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main() {
     std::cout << "   ***check Bureaucrat***" << std::endl;
