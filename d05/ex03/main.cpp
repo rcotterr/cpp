@@ -153,5 +153,30 @@ int main() {
 
     std::cout << std::endl;
 
+    std::cout << "   ***check Intern***" << std::endl;
+    Intern intern = Intern();
+
+    Intern intern_copy = Intern(intern);
+    Intern intern_equal = intern;
+
+    Form * some_form = intern.makeForm("robotomy request", "robotomy request target");
+    std::cout << "Form name some_form: " << some_form->getName() << std::endl;
+
+    delete some_form;
+
+    std::cout << std::endl;
+
+
+    std::cout << "   ***check Subject***" << std::endl;
+    Intern someRandomIntern;
+    Form* rrf;
+
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+    std::cout << "Form name rrf: " << rrf->getName() << std::endl;
+    delete rrf;
+
+    std::cout << std::endl;
+
     return 0;
 }
