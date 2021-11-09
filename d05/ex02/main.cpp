@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
     std::cout << "   ***check Bureaucrat***" << std::endl;
@@ -109,6 +109,41 @@ int main() {
     robotomy_request_form_not_signed.execute(bureaucrat_high_grade);
 
     std::cout << std::endl;
+
+    std::cout << "   ***check PresidentialPardonForm***" << std::endl;
+    PresidentialPardonForm presidential_pardon_form = PresidentialPardonForm("equip");
+    std::cout << "Target of presidential_pardon_form is: " << presidential_pardon_form.getTarget() << std::endl;
+    std::cout << presidential_pardon_form;
+
+    presidential_pardon_form.beSigned(bureaucrat_high_grade);
+    std::cout << "after signed: " << presidential_pardon_form;
+
+    PresidentialPardonForm presidential_pardon_form_copy = PresidentialPardonForm(presidential_pardon_form);
+    std::cout << "presidential_pardon_form_copy is : " << presidential_pardon_form_copy;
+    PresidentialPardonForm presidential_pardon_form_equal = presidential_pardon_form;
+    std::cout << "presidential_pardon_form_equal is : " << presidential_pardon_form_equal;
+    PresidentialPardonForm presidential_pardon_form_const = PresidentialPardonForm("some_target");
+    std::cout << "presidential_pardon_form_const is : " << presidential_pardon_form_const;
+    presidential_pardon_form_const = presidential_pardon_form;
+    std::cout << "after equal presidential_pardon_form_const is : " << presidential_pardon_form_const;
+
+    presidential_pardon_form.execute(bureaucrat_high_grade);
+    try
+    {
+        presidential_pardon_form.execute(bureaucrat_low_grade);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+    PresidentialPardonForm presidential_pardon_form_not_signed = PresidentialPardonForm("not_signed_smth");
+    std::cout << presidential_pardon_form_not_signed;
+    presidential_pardon_form_not_signed.execute(bureaucrat_high_grade);
+
+    std::cout << std::endl;
+
+
 
 
     return 0;
