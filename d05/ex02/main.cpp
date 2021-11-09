@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main() {
     std::cout << "   ***check Bureaucrat***" << std::endl;
@@ -75,6 +75,41 @@ int main() {
     shrubbery_creation_form_not_signed.execute(bureaucrat);
 
     std::cout << std::endl;
+
+    std::cout << "   ***check RobotomyRequestForm***" << std::endl;
+    RobotomyRequestForm robotomy_request_form = RobotomyRequestForm("equip");
+    std::cout << "Target of robotomy_request_form is: " << robotomy_request_form.getTarget() << std::endl;
+    std::cout << robotomy_request_form;
+
+    Bureaucrat bureaucrat_high_grade = Bureaucrat("bureaucrat_high_grade", 1);
+    robotomy_request_form.beSigned(bureaucrat_high_grade);
+    std::cout << "after signed: " << robotomy_request_form;
+
+    RobotomyRequestForm robotomy_request_form_copy = RobotomyRequestForm(robotomy_request_form);
+    std::cout << "robotomy_request_form_copy is : " << robotomy_request_form_copy;
+    RobotomyRequestForm robotomy_request_form_equal = robotomy_request_form;
+    std::cout << "robotomy_request_form_equal is : " << robotomy_request_form_equal;
+    RobotomyRequestForm robotomy_request_form_const = RobotomyRequestForm("some_target");
+    std::cout << "robotomy_request_form_const is : " << robotomy_request_form_const;
+    robotomy_request_form_const = robotomy_request_form;
+    std::cout << "after equal robotomy_request_form_const is : " << robotomy_request_form_const;
+
+    robotomy_request_form.execute(bureaucrat_high_grade);
+    try
+    {
+        robotomy_request_form.execute(bureaucrat_low_grade);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "exception: " << e.what() << std::endl;
+    }
+
+    RobotomyRequestForm robotomy_request_form_not_signed = RobotomyRequestForm("not_signed_smth");
+    std::cout << robotomy_request_form_not_signed;
+    robotomy_request_form_not_signed.execute(bureaucrat_high_grade);
+
+    std::cout << std::endl;
+
 
     return 0;
 }
