@@ -144,8 +144,14 @@ int main() {
 
     std::cout << std::endl;
 
+    std::cout << "   ***check new in Bureaucrat***" << std::endl;
+    ShrubberyCreationForm shrubbery_creation_form_bureaucrat_exec = ShrubberyCreationForm("shrubbery_creation_form_bureaucrat_exec");
+    shrubbery_creation_form_bureaucrat_exec.beSigned(bureaucrat_high_grade);
+    std::cout << shrubbery_creation_form_bureaucrat_exec;
+    bureaucrat_high_grade.executeForm(shrubbery_creation_form_bureaucrat_exec);
+    bureaucrat_low_grade.executeForm(shrubbery_creation_form_bureaucrat_exec);
 
-
+    std::cout << std::endl;
 
     return 0;
 }
