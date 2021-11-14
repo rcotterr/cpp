@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
     char q = static_cast<char>(argv[1][0]);
     std::cout << "char q: " << q << std::endl;
 
-    long double ld = std::strtold( argv[1], NULL );
+    long double ld = std::strtold( argv[1], NULL ); //TODO process c, a, b and so on
     std::cout << "ld: " << ld << std::endl;
 
     char c = static_cast<char>(ld);
