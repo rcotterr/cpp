@@ -2,14 +2,26 @@
 #include <string>
 #include <typeinfo>
 #include <sstream>
+#include <errno.h>
 
-//void toChar(char * arg) {
-//    std::cout << "char: ";
-//    if (strlen(example) == 1) {
-//
-//    }
-//
-//}
+
+bool is_displayable_char(std::string arg) {
+    return arg.length() == 1 && std::isprint(arg[0]);
+}
+
+void process_char(char c) {
+    std::cout << "char: " << c << std::endl;
+
+    int i = static_cast<int>(c);
+    std::cout << "int: " << i << std::endl;
+
+    float f = static_cast<float>(c);
+    std::cout << "float: " << f << std::endl;
+
+    double d = static_cast<double>(c);
+    std::cout << "double: " << d << std::endl;
+
+}
 
 
 int main(int argc, char **argv) {
@@ -19,59 +31,40 @@ int main(int argc, char **argv) {
     }
     char * some_var = argv[1];
     std::cout << some_var << std::endl;
-    void * v = argv[1];
 
-    std::cout << "type: " << typeid(argv[1]).name() << std::endl;
-    std::cout << "type: " << typeid(v).name() << std::endl;
-    std::cout << "type: " << typeid(1234567890).name() << std::endl;
-    std::cout << "type: " << typeid("1234567890").name() << std::endl;
-
-    int n;
-    std::istringstream s(argv[1]);
-    s >> n;
-
-
-
-    if(s) {
-
-        char ch;
-    //    std::string s = argv[1];
-        s >> ch;
-
-
-        if(!s.eof())
-        {
-            std::cout << "err " << ch << std::endl;
-        }
-        else {
-        std::cout << "ok " << ch << std::endl;
-        }
+    if (is_displayable_char(some_var)) {
+        process_char(some_var[0]);
+        return 0;
     }
 
+    long double ld = std::strtold( argv[1], NULL );
+    std::cout << "ld: " << ld << std::endl; //delete
 
-    char q = static_cast<char>(argv[1][0]);
-    std::cout << "char q: " << q << std::endl;
-
-    long double ld = std::strtold( argv[1], NULL ); //TODO process c, a, b and so on
-    std::cout << "ld: " << ld << std::endl;
-
-    char c = static_cast<char>(ld);
-    std::cout << "char: " << c << std::endl;
-    if ((bool)std::isprint(c)) {
-        std::cout << "char: " << c << std::endl;
-    }
-    else {
-        std::cout << "char: Non displayable" << std::endl;
+    if (errno == ERANGE){ //TODO error doesnt work
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+        return 0;
     }
 
-    int i = static_cast<int>(ld);
-    std::cout << "int: " << i << std::endl;
-
-    float f = static_cast<float>(ld);
-    std::cout << "float: " << f << std::endl;
-
-    double d = static_cast<double>(ld);
-    std::cout << "double: " << d << std::endl;
+//    char c = static_cast<char>(ld);
+//    std::cout << "char: " << c << std::endl;
+//    if ((bool)std::isprint(c)) {
+//        std::cout << "char: " << c << std::endl;
+//    }
+//    else {
+//        std::cout << "char: Non displayable" << std::endl;
+//    }
+//
+//    int i = static_cast<int>(ld);
+//    std::cout << "int: " << i << std::endl;
+//
+//    float f = static_cast<float>(ld);
+//    std::cout << "float: " << f << std::endl;
+//
+//    double d = static_cast<double>(ld);
+//    std::cout << "double: " << d << std::endl;
 
 
     return 0;
