@@ -6,8 +6,9 @@
 
 
 bool is_displayable_char(std::string arg) {
-    return arg.length() == 1 && std::isprint(arg[0]);
+    return arg.length() == 1 && std::isprint(arg[0]) && !isnumber(arg[0]);
 }
+
 
 void process_char(char c) {
     std::cout << "char: " << c << std::endl;
@@ -29,18 +30,23 @@ int main(int argc, char **argv) {
         std::cout << "must provide one arg" << std::endl;
         return 0;
     }
-    char * some_var = argv[1];
-    std::cout << some_var << std::endl;
+    char * arg = argv[1];
+    std::cout << arg << std::endl;
 
-    if (is_displayable_char(some_var)) {
-        process_char(some_var[0]);
+    if (is_displayable_char(arg)) {
+        process_char(arg[0]);
         return 0;
     }
 
-    long double ld = std::strtold( argv[1], NULL );
+    char *endptr = NULL;
+    if (arg[strlen(arg) - 1] == 'f') { //TODO 123f
+        arg[strlen(arg) - 1] = '\0';
+    }
+
+    long double ld = std::strtold(arg, &endptr);
     std::cout << "ld: " << ld << std::endl; //delete
 
-    if (errno == ERANGE){ //TODO error doesnt work
+    if (errno != 0 || arg == endptr || *endptr != 0) { //TODO more errors https://stackoverflow.com/questions/26080829/detecting-strtol-failure/26083517
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
@@ -48,24 +54,22 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-//    char c = static_cast<char>(ld);
-//    std::cout << "char: " << c << std::endl;
-//    if ((bool)std::isprint(c)) {
-//        std::cout << "char: " << c << std::endl;
-//    }
-//    else {
-//        std::cout << "char: Non displayable" << std::endl;
-//    }
-//
-//    int i = static_cast<int>(ld);
-//    std::cout << "int: " << i << std::endl;
-//
-//    float f = static_cast<float>(ld);
-//    std::cout << "float: " << f << std::endl;
-//
-//    double d = static_cast<double>(ld);
-//    std::cout << "double: " << d << std::endl;
+    char c = static_cast<char>(ld);
+    if ((bool)std::isprint(c)) {
+        std::cout << "char: " << c << std::endl;
+    }
+    else {
+        std::cout << "char: Non displayable" << std::endl;
+    }
 
+    int i = static_cast<int>(ld);
+    std::cout << "int: " << i << std::endl;
+
+    float f = static_cast<float>(ld);
+    std::cout << "float: " << f << std::endl;
+
+    double d = static_cast<double>(ld);
+    std::cout << "double: " << d << std::endl;
 
     return 0;
 }
