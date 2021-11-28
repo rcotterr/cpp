@@ -69,15 +69,15 @@ void process_int(int n) {
 
 bool is_float(char * arg) {
     char *end;
-    long  l;
+    float  f;
     errno = 0;
-    l = std::strtof(arg, &end);
-    if ((errno == ERANGE && l == LONG_MAX) || l > INT_MAX) {
+    f = std::strtof(arg, &end);
+    printf("%lf\n", std::numeric_limits<float>::max());
+    std::cout << std::numeric_limits<float>::max() << std::endl;
+    if (errno == ERANGE) {
         return false;
     }
-    if ((errno == ERANGE && l == LONG_MIN) || l < INT_MIN) {
-        return false;
-    }
+    std::cout << "lala" << (errno == ERANGE) << std::endl;
     if (*arg == '\0' || (*end != 'f' || *(end+1) != '\0')) { //TODO why ||
 //    if (*arg == '\0' || *end != 'f\0') { //TODO
         return false;
@@ -133,6 +133,14 @@ int main(int argc, char **argv) {
         process_float(f);
         return 0;
     }
+    if (is_float(arg)) {
+        std::cout << "is float" << std::endl;
+        float f = std::stof(arg);
+        process_float(f);
+        return 0;
+    }
+
+
 
 //    int i_;
 //    std::cout << sscanf("1231q", "%d", &i_) << std::endl;
