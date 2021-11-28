@@ -61,6 +61,36 @@ void identify(Base* p) {
 }
 
 
+void identify(Base& p) {
+    try {
+        A & a = dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        (void)a;
+        return;
+    }
+    catch (std::bad_cast bc){
+        (void)bc;
+    }
+    try {
+        B & b = dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        (void)b;
+        return;
+    }
+    catch (std::bad_cast bc){
+        (void)bc;
+    }
+    try {
+        C & c = dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        (void)c;
+        return;
+    }
+    catch (std::bad_cast bc){
+        (void)bc;
+    }
+}
+
 
 int main(void) {
     Base base = Base();
@@ -68,13 +98,26 @@ int main(void) {
     B b = B();
     C c = C();
 
+    std::cout << "***Check for pointer***" << std::endl;
     int n = 7;
-    Base * some_rand_class;
+    Base * some_rand_class_ptr;
     for (int i = 0; i < n; i++) {
-	    some_rand_class = generate();
+	    some_rand_class_ptr = generate();
 	    std::cout << "some_rand_class type is: " << std::endl;
-	    identify(some_rand_class);
-	    delete some_rand_class;
+	    identify(some_rand_class_ptr);
+	    delete some_rand_class_ptr;
+    }
+    std::cout << std::endl;
+
+    std::cout << "***Check for reference***" << std::endl;
+    Base * base_ptr;
+    for (int i = 0; i < n; i++) {
+	    base_ptr = generate();
+	    Base & some_rand_class_ref = dynamic_cast<Base & >(*base_ptr);
+
+	    std::cout << "some_rand_class type is: " << std::endl;
+	    identify(some_rand_class_ref);
+	    delete base_ptr;
     }
 
 
