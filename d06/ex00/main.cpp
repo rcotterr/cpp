@@ -106,6 +106,41 @@ void process_float(float f) {
 }
 
 
+bool is_double(char * arg) {
+    char *end;
+    double  d;
+    errno = 0;
+    d = std::strtod(arg, &end);
+    if (errno == ERANGE) {
+        return false;
+    }
+    if (*arg == '\0' || *end != '\0') {
+        return false;
+    }
+    return true;
+}
+
+
+void process_double(double d) {
+
+    char c = static_cast<char>(d);
+
+    if ((bool)std::isprint(c)) {
+        std::cout << "char: " << c << std::endl;
+    }
+    else {
+        std::cout << "char: Non displayable" << std::endl;
+    }
+
+    int n = static_cast<int>(d);
+    std::cout << "int: " << n << std::endl;
+
+    float f = static_cast<float>(d);
+    std::cout << "float: " << f << ".0f" << std::endl; //TODO .0f float: 1.2.0f //double: 1.2.0
+
+    std::cout << "double: " << d << ".0" << std::endl; //TODO .0
+}
+
 
 int main(int argc, char **argv) {
     if (argc != 2) {
@@ -137,6 +172,13 @@ int main(int argc, char **argv) {
         std::cout << "is float" << std::endl;
         float f = std::stof(arg);
         process_float(f);
+        return 0;
+    }
+
+    if (is_double(arg)) {
+        std::cout << "is double" << std::endl;
+        double d = std::stod(arg);
+        process_double(d);
         return 0;
     }
 
