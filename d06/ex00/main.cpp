@@ -184,7 +184,6 @@ int main(int argc, char **argv) {
         return 0;
     }
     char * arg = argv[1];
-    std::cout << arg << std::endl;
 
     bool ok = convert(arg);
     if (!ok) {
@@ -195,9 +194,9 @@ int main(int argc, char **argv) {
 }
 
 
-// char, int, float or double
 
-// decimal notation
+
+
 
 //Examples of char literal values ’c’, ’a’... To simplify, please note that: non displayable characters can’t be passed as a parameter to your program, and if a conversion
 //to char is not displayable, output a notification instead.

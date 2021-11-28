@@ -1,0 +1,2 @@
+make
+./convert 'a'
