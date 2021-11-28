@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 
 void output_char(char c) {
@@ -74,14 +75,10 @@ bool is_float(char * arg) {
     float  f;
     errno = 0;
     f = std::strtof(arg, &end);
-    printf("%lf\n", std::numeric_limits<float>::max());
-    std::cout << std::numeric_limits<float>::max() << std::endl;
     if (errno == ERANGE) {
         return false;
     }
-    std::cout << "lala" << (errno == ERANGE) << std::endl;
-    if (*arg == '\0' || (*end != 'f' || *(end+1) != '\0')) { //TODO why ||
-//    if (*arg == '\0' || *end != 'f\0') { //TODO
+    if (*arg == '\0' || *end != 'f' || *(end+1) != '\0') {
         return false;
     }
     return true;
@@ -90,21 +87,25 @@ bool is_float(char * arg) {
 void process_float(float f) {
 
     char c = static_cast<char>(f);
-
-    if ((bool)std::isprint(c)) {
-        std::cout << "char: " << c << std::endl;
+    if (f > CHAR_MAX || f < CHAR_MIN) {
+        std::cout << "char: impossible" << std::endl;
     }
     else {
-        std::cout << "char: Non displayable" << std::endl;
+        output_char(c);
     }
 
     int n = static_cast<int>(f);
-    std::cout << "int: " << n << std::endl;
+    if (f > INT_MAX || f < INT_MIN) {
+        std::cout << "int: impossible" << std::endl;
+    }
+    else {
+        std::cout << "int: " << n << std::endl;
+    }
 
-    std::cout << "float: " << f << ".0f" << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 
     double d = static_cast<double>(f);
-    std::cout << "double: " << d << ".0" << std::endl;
+    std::cout << "double: " << d << std::endl;
 }
 
 
@@ -157,6 +158,7 @@ bool convert(char * arg) {
     if (is_float(arg)) {
         std::cout << "is float" << std::endl;
         float f = std::stof(arg);
+        std::cout << "float: " << f << std::endl;
         process_float(f);
         return true;
     }
