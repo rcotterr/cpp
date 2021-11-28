@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
-#include <typeinfo>
-#include <sstream>
-#include <errno.h>
-#include <regex>
-//#include <QString>
-#include <cstdlib>
-#include <stdlib.h>
+
+
+void output_char(char c) {
+    if ((bool)std::isprint(c)) {
+        std::cout << "char: " << c << std::endl;
+    }
+    else {
+        std::cout << "char: Non displayable" << std::endl;
+    }
+}
 
 
 bool is_displayable_char(std::string arg) {
@@ -49,12 +52,11 @@ bool is_int(char * arg) {
 void process_int(int n) {
 
     char c = static_cast<char>(n);
-
-    if ((bool)std::isprint(c)) {
-        std::cout << "char: " << c << std::endl;
+    if (n > CHAR_MAX || n < CHAR_MIN) {
+        std::cout << "char: impossible" << std::endl;
     }
     else {
-        std::cout << "char: Non displayable" << std::endl;
+        output_char(c);
     }
 
     std::cout << "int: " << n << std::endl;
@@ -141,6 +143,33 @@ void process_double(double d) {
     std::cout << "double: " << d << ".0" << std::endl; //TODO .0
 }
 
+bool convert(char * arg) {
+    if (is_displayable_char(arg)) {
+        process_char(arg[0]);
+        return true;
+    }
+    if (is_int(arg)) {
+        std::cout << "is int" << std::endl;
+        int n = std::stoi(arg);
+        process_int(n);
+        return true;
+    }
+    if (is_float(arg)) {
+        std::cout << "is float" << std::endl;
+        float f = std::stof(arg);
+        process_float(f);
+        return true;
+    }
+    if (is_double(arg)) {
+        std::cout << "is double" << std::endl;
+        double d = std::stod(arg);
+        process_double(d);
+        return true;
+    }
+    return false;
+}
+
+
 
 int main(int argc, char **argv) {
     if (argc != 2) {
@@ -150,60 +179,11 @@ int main(int argc, char **argv) {
     char * arg = argv[1];
     std::cout << arg << std::endl;
 
-    if (is_displayable_char(arg)) {
-        process_char(arg[0]);
-        return 0;
+    bool ok = convert(arg);
+    if (!ok) {
+        std::cout << "invalid input" << std::endl;
     }
 
-    if (is_int(arg)) {
-        std::cout << "is int" << std::endl;
-        int n = std::stoi(arg);
-        process_int(n);
-        return 0;
-    }
-
-    if (is_float(arg)) {
-        std::cout << "is float" << std::endl;
-        float f = std::stof(arg);
-        process_float(f);
-        return 0;
-    }
-    if (is_float(arg)) {
-        std::cout << "is float" << std::endl;
-        float f = std::stof(arg);
-        process_float(f);
-        return 0;
-    }
-
-    if (is_double(arg)) {
-        std::cout << "is double" << std::endl;
-        double d = std::stod(arg);
-        process_double(d);
-        return 0;
-    }
-
-
-
-//    int i_;
-//    std::cout << sscanf("1231q", "%d", &i_) << std::endl;
-//    std::cout << sscanf("1231", "%d", &i_) << std::endl;
-//    std::cout << sscanf("1231q.0", "%d", &i_) << std::endl;
-//    std::cout << sscanf("-12", "%d", &i_) << std::endl;
-//    std::cout << sscanf("1231.0f", "%d", &i_) << std::endl;
-//
-//    if(sscanf("1231q", "%d", &i_) != 1) {
-//        std::cout << "int" << std::endl;
-//        return 0;
-//    }
-
-//    bool ok;
-//    std::string str = "123";
-//
-//    int i = QString::fromStdString(str).toInt(&ok);
-//    if (ok) {
-//        std::cout << "int" << std::endl;
-//        return;
-//    }
 
 
 //    char *endptr = NULL;
@@ -225,13 +205,7 @@ int main(int argc, char **argv) {
 //        return 0;
 //    }
 //
-//    char c = static_cast<char>(ld);
-//    if ((bool)std::isprint(c)) {
-//        std::cout << "char: " << c << std::endl;
-//    }
-//    else {
-//        std::cout << "char: Non displayable" << std::endl;
-//    }
+
 //
 //    int i = static_cast<int>(ld);
 //    std::cout << "int: " << i << std::endl;
@@ -278,6 +252,7 @@ int main(int argc, char **argv) {
 //-inff, +inff and nanf.
 //0.0, -4.2, 4.2
 //"1234567.0f   "
+//./convert 12345678 ??? -- char: N
 
 
 
