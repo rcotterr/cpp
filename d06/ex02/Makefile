@@ -1,9 +1,24 @@
-all:
-	clang++ -std=c++98 -Wall -Wextra -Werror main.cpp Base.hpp Base.cpp
+NAME = ex02
+
+CC = clang++
+CFLAGS = -std=c++98 -Wall -Wextra -Werror
+
+INC = Base.hpp
+SRCS = main.cpp Base.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(INC)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf a.out Base.hpp.gch
+	@/bin/rm -f $(OBJS)
 
-re:
-	rm -rf a.out Base.hpp.gch
-	clang++ -std=c++98 -Wall -Wextra -Werror main.cpp Base.hpp Base.cpp
+fclean: clean
+	@/bin/rm -f $(NAME)
+
+re: fclean all
