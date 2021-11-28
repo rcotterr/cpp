@@ -127,21 +127,26 @@ bool is_double(char * arg) {
 void process_double(double d) {
 
     char c = static_cast<char>(d);
-
-    if ((bool)std::isprint(c)) {
-        std::cout << "char: " << c << std::endl;
+    if (d > CHAR_MAX || d < CHAR_MIN) {
+        std::cout << "char: impossible" << std::endl;
     }
     else {
-        std::cout << "char: Non displayable" << std::endl;
+        output_char(c);
     }
 
     int n = static_cast<int>(d);
-    std::cout << "int: " << n << std::endl;
+    if (d > INT_MAX || d < INT_MIN) {
+        std::cout << "int: impossible" << std::endl;
+    }
+    else {
+        std::cout << "int: " << n << std::endl;
+    }
 
     float f = static_cast<float>(d);
-    std::cout << "float: " << f << ".0f" << std::endl; //TODO .0f float: 1.2.0f //double: 1.2.0
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 
-    std::cout << "double: " << d << ".0" << std::endl; //TODO .0
+    std::cout << "double: " << d << std::endl;
+
 }
 
 bool convert(char * arg) {
@@ -185,38 +190,6 @@ int main(int argc, char **argv) {
     if (!ok) {
         std::cout << "invalid input" << std::endl;
     }
-
-
-
-//    char *endptr = NULL;
-////    if (arg[strlen(arg) - 1] == 'f') { //TODO 123f
-////        arg[strlen(arg) - 1] = '\0';
-////    }
-//
-//    long double ld = std::strtold(arg, &endptr);
-//    std::cout << "ld: " << ld << std::endl; //delete
-//
-//    std::cout << "endptr " << *endptr << std::endl;
-//
-////    if (errno != 0 || arg == endptr || (*endptr != 0 || ())) { //TODO more errors https://stackoverflow.com/questions/26080829/detecting-strtol-failure/26083517
-//    if (errno != 0 || arg == endptr || *endptr != 0) { //TODO more errors https://stackoverflow.com/questions/26080829/detecting-strtol-failure/26083517
-//        std::cout << "char: impossible" << std::endl;
-//        std::cout << "int: impossible" << std::endl;
-//        std::cout << "float: impossible" << std::endl;
-//        std::cout << "double: impossible" << std::endl;
-//        return 0;
-//    }
-//
-
-//
-//    int i = static_cast<int>(ld);
-//    std::cout << "int: " << i << std::endl;
-//
-//    float f = static_cast<float>(ld);
-//    std::cout << "float: " << f << std::endl;
-//
-//    double d = static_cast<double>(ld);
-//    std::cout << "double: " << d << std::endl;
 
     return 0;
 }
