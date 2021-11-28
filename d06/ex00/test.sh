@@ -9,10 +9,6 @@ echo '----!----'
 ./convert '!'
 echo
 
-echo '----\\n----'
-./convert '\n'
-echo
-
 echo 'check int'
 echo '----0----'
 ./convert '0'
@@ -76,3 +72,37 @@ echo '----"nan"----'
 ./convert 'nan'
 echo
 
+echo 'check invalid'
+echo '----"1234567.0f   "----'
+./convert "1234567.0f   "
+echo
+
+echo '----\\n----'
+./convert '\n'
+echo
+
+echo '----"1234567.0ff"----'
+./convert "1234567.0ff"
+echo
+
+
+echo 'check overflow'
+echo '----"1234567234567898765433456789098765434567898765434567.4567654345f"----'
+./convert "1234567234567898765433456789098765434567898765434567.4567654345f"
+echo
+
+echo '----"-2147483648.0"----'
+./convert "-2147483648.0"
+echo
+
+echo '----"-2147483649.0"----'
+./convert "-2147483649.0"
+echo
+
+echo '----"2147483647.0"----'
+./convert "2147483647.0"
+echo
+
+echo '----"2147483648.0"----'
+./convert "2147483648.0"
+echo
