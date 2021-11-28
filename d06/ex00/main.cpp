@@ -67,22 +67,44 @@ void process_int(int n) {
 }
 
 
-//bool is_int(char * arg) {
-//    char *end;
-//    long  l;
-//    errno = 0;
-//    l = std::strtol(arg, &end, 10);
-//    if ((errno == ERANGE && l == LONG_MAX) || l > INT_MAX) {
-//        return false;
-//    }
-//    if ((errno == ERANGE && l == LONG_MIN) || l < INT_MIN) {
-//        return false;
-//    }
-//    if (*arg == '\0' || *end != '\0') {
-//        return false;
-//    }
-//    return true;
-//}
+bool is_float(char * arg) {
+    char *end;
+    long  l;
+    errno = 0;
+    l = std::strtof(arg, &end);
+    if ((errno == ERANGE && l == LONG_MAX) || l > INT_MAX) {
+        return false;
+    }
+    if ((errno == ERANGE && l == LONG_MIN) || l < INT_MIN) {
+        return false;
+    }
+    if (*arg == '\0' || (*end != 'f' || *(end+1) != '\0')) { //TODO why ||
+//    if (*arg == '\0' || *end != 'f\0') { //TODO
+        return false;
+    }
+    return true;
+}
+
+void process_float(float f) {
+
+    char c = static_cast<char>(f);
+
+    if ((bool)std::isprint(c)) {
+        std::cout << "char: " << c << std::endl;
+    }
+    else {
+        std::cout << "char: Non displayable" << std::endl;
+    }
+
+    int n = static_cast<int>(f);
+    std::cout << "int: " << n << std::endl;
+
+    std::cout << "float: " << f << ".0f" << std::endl;
+
+    double d = static_cast<double>(f);
+    std::cout << "double: " << d << ".0" << std::endl;
+}
+
 
 
 int main(int argc, char **argv) {
@@ -107,8 +129,8 @@ int main(int argc, char **argv) {
 
     if (is_float(arg)) {
         std::cout << "is float" << std::endl;
-//        int n = std::stoi(arg);
-//        process_int(n);
+        float f = std::stof(arg);
+        process_float(f);
         return 0;
     }
 
