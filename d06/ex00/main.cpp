@@ -87,7 +87,7 @@ bool is_float(char * arg) {
 void process_float(float f) {
 
     char c = static_cast<char>(f);
-    if (f > CHAR_MAX || f < CHAR_MIN) {
+    if (f > CHAR_MAX || f < CHAR_MIN || f != f) {
         std::cout << "char: impossible" << std::endl;
     }
     else {
@@ -95,7 +95,7 @@ void process_float(float f) {
     }
 
     int n = static_cast<int>(f);
-    if (f > INT_MAX || f < INT_MIN) {
+    if (f > INT_MAX || f < INT_MIN || f != f) {
         std::cout << "int: impossible" << std::endl;
     }
     else {
@@ -127,7 +127,7 @@ bool is_double(char * arg) {
 void process_double(double d) {
 
     char c = static_cast<char>(d);
-    if (d > CHAR_MAX || d < CHAR_MIN) {
+    if (d > CHAR_MAX || d < CHAR_MIN || d != d) {
         std::cout << "char: impossible" << std::endl;
     }
     else {
@@ -135,7 +135,7 @@ void process_double(double d) {
     }
 
     int n = static_cast<int>(d);
-    if (d > INT_MAX || d < INT_MIN) {
+    if (d > INT_MAX || d < INT_MIN || d != d) {
         std::cout << "int: impossible" << std::endl;
     }
     else {
@@ -155,20 +155,17 @@ bool convert(char * arg) {
         return true;
     }
     if (is_int(arg)) {
-        std::cout << "is int" << std::endl;
         int n = std::stoi(arg);
         process_int(n);
         return true;
     }
     if (is_float(arg)) {
-        std::cout << "is float" << std::endl;
         float f = std::stof(arg);
         std::cout << "float: " << f << std::endl;
         process_float(f);
         return true;
     }
     if (is_double(arg)) {
-        std::cout << "is double" << std::endl;
         double d = std::stod(arg);
         process_double(d);
         return true;
@@ -198,33 +195,10 @@ int main(int argc, char **argv) {
 
 
 
-//Examples of char literal values ’c’, ’a’... To simplify, please note that: non displayable characters can’t be passed as a parameter to your program, and if a conversion
-//to char is not displayable, output a notification instead.
-
-//Examples of int literal values: 0, -42, 42...
-
-//Examples of float literal values: 0.0f, -4.2f, 4.2f... You will also accept these
-//pseudo literals as well, you know, for science: -inff, +inff and nanf.
-
-//Examples of double literal values: 0.0, -4.2, 4.2 You will also accept these pseudo
-//literals as well, you know, for fun: -inf, +inf and nan.
-
-//Your program must detect the literal’s type, acquire that literal in the right type (so
-//it’s not a string anymore), then convert it explicitly to each of the three other types and
-//display the results using the same formatting as below. If a conversion does not make
-//sense or overflows, display that the conversion is impossible. You can include any header
-//you need to handle numeric limits and special values.
 
 
-// ./convert 42.0f
-//./convert nan
-//./convert 0
-//./convert ’c’
-//./convert ’a’
-//0, -42, 42...
-//0.0f, -4.2f, 4.2f
-//-inff, +inff and nanf.
-//0.0, -4.2, 4.2
+
+
 //"1234567.0f   "
 //./convert 12345678 ??? -- char: N
 
