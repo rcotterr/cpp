@@ -14,9 +14,6 @@ class Array {
         Array<T>(unsigned int n) {
             this->_len = n;
             this->_arr = new T[this->_len];
-            for (unsigned int i = 0; i < this->_len; i++) {
-                this->_arr[i] = T();
-            }
             return;
         };
 
