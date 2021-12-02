@@ -2,45 +2,58 @@
 #include <string>
 
 
-
 template <typename T>
 class Array {
     public:
         Array<T>() {
-            std::cout << "constructor0" << std::endl;
             this->_len = 0;
-            this->_arr = new int[this->_len];
+            this->_arr = new T[this->_len];
             return;
         };
 
         Array<T>(unsigned int n) {
-            std::cout << "constructor1" << std::endl;
             this->_len = n;
-            this->_arr = new int[this->_len];
+            this->_arr = new T[this->_len];
             for (unsigned int i = 0; i < this->_len; i++) {
                 this->_arr[i] = T();
-//                std::cout << this->_arr[i] << std::endl;
             }
             return;
         };
 
-
-        ~Array<T>(){
+        Array<T>(Array const & src) {
+            *this = src;
             return;
         };
+
+        Array & operator=(Array const & src) {
+
+            this->_len = src.size();
+            this->_arr = new T[this->_len];
+            for (unsigned int j = 0; j < this->_len; j++) {
+                this->_arr[j] = src[j];
+            }
+            return *this;
+        }
+
+        T & operator[](std::size_t idx) const{
+            if (idx < 0 || idx >= this->_len) {
+                throw std::exception();
+            }
+
+            return this->_arr[idx];
+        }
+
+        ~Array<T>(){
+            delete this->_arr;
+            return;
+        };
+
         unsigned int size(void) const {
             return this->_len;
         }
 
-    //TODO Construction by copy and assignment operator. In both cases, modifying one of
-    //the two arrays after copy/assignment won’t affect anything in the other array
-
-    //TODO Elements are accessible through the operator[].
-    //TODO • When accessing an element with the operator[], if this element is out of the limits,
-    //a std::exception is thrown
     private:
         T * _arr;
         unsigned int _len;
-
 };
 
