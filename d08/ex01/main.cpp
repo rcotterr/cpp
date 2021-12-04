@@ -67,5 +67,16 @@ int main(void) {
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
 
+
+    std::cout << "***Check a lot of numbers***" << std::endl;
+    std::vector<int> v(10000);
+    std::generate(v.begin(), v.end(), std::rand);
+    Span big_span = Span(10001);
+    std::cout << big_span;
+    big_span.addManyNumber(v);
+//    std::cout << big_span; //uncomment to output
+    std::cout << "Longest big_span of span is:  " << big_span.longestSpan() << std::endl;
+    std::cout << "Shortest big_span of span is:  " << big_span.shortestSpan() << std::endl;
+
     return 0;
 }

@@ -45,6 +45,17 @@ void Span::addNumber(int n) {
     return;
 }
 
+void Span::addManyNumber(std::vector<int> ints) {
+    std::vector<int>::iterator intsIterator;
+    for(intsIterator = ints.begin();
+        intsIterator != ints.end();
+        intsIterator++)
+    {
+        addNumber(*intsIterator);
+    }
+    return;
+}
+
 int Span::shortestSpan() const {
     if (this->_container.size() < MIN_ELEM) {
         throw std::exception();
