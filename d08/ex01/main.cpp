@@ -14,16 +14,31 @@ int main(void) {
     catch (const std::exception& e) {
         std::cout << "While finding longest span in empty sp: " << e.what() << std::endl;
     }
+    try {
+        sp.shortestSpan();
+    }
+    catch (const std::exception& e) {
+        std::cout << "While finding shortest span in empty sp: " << e.what() << std::endl;
+    }
+
     sp.addNumber(4);
+
     try {
         sp.longestSpan();
     }
     catch (const std::exception& e) {
         std::cout << "While finding longest span in only one elem sp: " << e.what() << std::endl;
     }
+    try {
+        sp.shortestSpan();
+    }
+    catch (const std::exception& e) {
+        std::cout << "While finding shortest span in only one elem sp: " << e.what() << std::endl;
+    }
+
     sp.addNumber(3);
     sp.addNumber(2);
-    sp.addNumber(5);
+    sp.addNumber(-5);
     sp.addNumber(0);
     std::cout << sp;
     try {
@@ -34,7 +49,7 @@ int main(void) {
     }
 
     std::cout << "Longest span of sp is:  " << sp.longestSpan() << std::endl;
-
+    std::cout << "Shortest span of sp is:  " << sp.shortestSpan() << std::endl;
 
 
     Span sp_copy = Span(sp);

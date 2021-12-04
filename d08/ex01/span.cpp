@@ -5,6 +5,8 @@
 #include <list>
 #include "span.hpp"
 
+const int MIN_ELEM = 2;
+
 Span::Span(unsigned int n) {
     this->_len = n;
     return;
@@ -44,12 +46,22 @@ void Span::addNumber(int n) {
 }
 
 int Span::shortestSpan() const {
-//TODO
-    return 0;
+    if (this->_container.size() < MIN_ELEM) {
+        throw std::exception();
+    }
+    int min = this->longestSpan();
+    int diff;
+    for (size_t i = 0; i < this->_container.size()-1; ++i) {
+        diff = abs(this->_container[i] - this->_container[i + 1]);
+        if (min > diff) {
+            min = diff;
+        }
+    }
+    return min;
 }
 
 int Span::longestSpan() const {
-    if (this->_container.size() < 2) {
+    if (this->_container.size() < MIN_ELEM) {
         throw std::exception();
     }
     return this->_container.back() - this->_container.front();
