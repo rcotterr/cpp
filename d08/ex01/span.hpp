@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 
 
 class Span
 {
     private:
-        std::list<int> _container;
+        std::vector<int> _container;
         unsigned int _len;
 
     public:
@@ -14,10 +14,10 @@ class Span
         ~Span();
         Span & operator=(Span const & src);
         Span(Span const & src);
-        void addNumber();
+        void addNumber(int n);
         int shortestSpan() const;
         int longestSpan() const;
-        std::list<int> getContainer() const;
+        std::vector<int> getContainer() const;
         unsigned int getLength() const;
 };
 

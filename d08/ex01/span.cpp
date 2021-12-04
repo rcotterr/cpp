@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <vector>
+#include <list>
 #include "span.hpp"
 
 Span::Span(unsigned int n) {
@@ -22,7 +25,7 @@ Span::Span(Span const & src) {
     return;
 }
 
-std::list<int> Span::getContainer() const {
+std::vector<int> Span::getContainer() const {
     return this->_container;
 }
 
@@ -30,8 +33,10 @@ unsigned int Span::getLength() const {
     return this->_len;
 }
 
-void Span::addNumber() {
-//TODO
+void Span::addNumber(int n) {
+    std::vector<int>::iterator it;
+    it =  std::lower_bound((this->_container).begin(), (this->_container).end(), n);
+    (this->_container).insert(it, n);
     return;
 }
 
@@ -46,7 +51,10 @@ int Span::longestSpan() const {
 }
 
 std::ostream & operator<<( std::ostream & o, Span const & src) {
-//    std::cout << "Span has: " << src.getContainer() << ", max length: " << src.getLength() << std::endl;
-    std::cout << "Span has: " << ", max length: " << src.getLength() << std::endl;
+    std::vector<int> container = src.getContainer();
+    std::cout << "Span has: [";
+    for (unsigned int i=0; i < container.size(); ++i)
+        std::cout << container[i] << ' ';
+    std::cout << "], max length: " << src.getLength() << std::endl;
     return o;
 }
