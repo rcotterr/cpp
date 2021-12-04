@@ -34,6 +34,9 @@ unsigned int Span::getLength() const {
 }
 
 void Span::addNumber(int n) {
+    if (this->_container.size() == this->_len) {
+        throw std::exception();
+    }
     std::vector<int>::iterator it;
     it =  std::lower_bound((this->_container).begin(), (this->_container).end(), n);
     (this->_container).insert(it, n);
@@ -46,8 +49,10 @@ int Span::shortestSpan() const {
 }
 
 int Span::longestSpan() const {
-//TODO
-    return 0;
+    if (this->_container.size() < 2) {
+        throw std::exception();
+    }
+    return this->_container.back() - this->_container.front();
 }
 
 std::ostream & operator<<( std::ostream & o, Span const & src) {
