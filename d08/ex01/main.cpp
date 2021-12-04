@@ -5,57 +5,67 @@
 
 
 int main(void) {
-    Span sp = Span(5);
-    std::cout << sp;
+    Span span = Span(5);
+    std::cout << span;
 
     try {
-        sp.longestSpan();
+        span.longestSpan();
     }
     catch (const std::exception& e) {
-        std::cout << "While finding longest span in empty sp: " << e.what() << std::endl;
+        std::cout << "While finding longest span in empty span: " << e.what() << std::endl;
     }
     try {
-        sp.shortestSpan();
+        span.shortestSpan();
     }
     catch (const std::exception& e) {
-        std::cout << "While finding shortest span in empty sp: " << e.what() << std::endl;
+        std::cout << "While finding shortest span in empty span: " << e.what() << std::endl;
     }
 
-    sp.addNumber(4);
+    span.addNumber(4);
 
     try {
-        sp.longestSpan();
+        span.longestSpan();
     }
     catch (const std::exception& e) {
-        std::cout << "While finding longest span in only one elem sp: " << e.what() << std::endl;
+        std::cout << "While finding longest span in only one elem span: " << e.what() << std::endl;
     }
     try {
-        sp.shortestSpan();
+        span.shortestSpan();
     }
     catch (const std::exception& e) {
-        std::cout << "While finding shortest span in only one elem sp: " << e.what() << std::endl;
+        std::cout << "While finding shortest span in only one elem span: " << e.what() << std::endl;
     }
 
-    sp.addNumber(3);
-    sp.addNumber(2);
-    sp.addNumber(-5);
-    sp.addNumber(0);
-    std::cout << sp;
+    span.addNumber(3);
+    span.addNumber(2);
+    span.addNumber(-5);
+    span.addNumber(0);
+    std::cout << span;
     try {
-        sp.addNumber(1);
+        span.addNumber(1);
     }
     catch (const std::exception& e) {
         std::cout << "While adding a number " << e.what() << std::endl;
     }
 
-    std::cout << "Longest span of sp is:  " << sp.longestSpan() << std::endl;
-    std::cout << "Shortest span of sp is:  " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest span of span is:  " << span.longestSpan() << std::endl;
+    std::cout << "Shortest span of span is:  " << span.shortestSpan() << std::endl;
 
 
-    Span sp_copy = Span(sp);
-    std::cout << "After copy constructor sp_copy is: " << sp_copy;
-    Span sp_equal = sp;
-    std::cout << "After operator= sp_equal is: " << sp_equal;
+    Span span_copy = Span(span);
+    std::cout << "After copy constructor span_copy is: " << span_copy;
+    Span span_equal = span;
+    std::cout << "After operator= span_equal is: " << span_equal;
+
+    std::cout << "***Check subject main***" << std::endl;
+    Span sp = Span(5);
+    sp.addNumber(5);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
 
     return 0;
 }
