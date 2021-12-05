@@ -3,8 +3,8 @@ NAME = a.out
 CC = clang++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INC = span.hpp
-SRCS = main.cpp span.cpp
+INC = mutantstack.hpp
+SRCS = main.cpp mutantstack.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
